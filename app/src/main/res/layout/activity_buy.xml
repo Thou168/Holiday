@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Buy_sell_rent.Buy.Buy">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageButton
+            android:background="#00FFFFFF"
+            android:src="@drawable/icon_back"
+            android:id="@+id/btn_back"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="Back"
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="@dimen/dp_16"
+            android:textStyle="normal" />
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:id="@+id/tv_home"
+        android:gravity="start|center_vertical"
+        android:text="Home"
+        android:textSize="16sp"
+        android:drawablePadding="@dimen/dp_24"
+        android:padding="@dimen/dp_8"
+        android:drawableStart="@drawable/icon_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View  style="@style/line"/>
+    <TextView
+        android:id="@+id/tv_iconphone"
+        android:gravity="start|center_vertical"
+        android:text="Phone and Tablet"
+        android:textSize="16sp"
+        android:drawablePadding="@dimen/dp_24"
+        android:padding="@dimen/dp_8"
+        android:drawableStart="@drawable/icon_iphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View  style="@style/line"/>
+    <TextView
+        android:id="@+id/tv_computer"
+        android:gravity="start|center_vertical"
+        android:text="Computer and Accessories"
+        android:textSize="16sp"
+        android:drawablePadding="@dimen/dp_24"
+        android:padding="@dimen/dp_8"
+        android:drawableStart="@drawable/icon_mac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View  style="@style/line"/>
+    <TextView
+        android:id="@+id/tv_motor"
+        android:gravity="start|center_vertical"
+        android:text="Vehicle"
+        android:textSize="16sp"
+        android:drawablePadding="@dimen/dp_24"
+        android:padding="@dimen/dp_8"
+        android:drawableStart="@drawable/icon_motorcycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View  style="@style/line"/>
+    <TextView
+        android:id="@+id/tv_electronic"
+        android:gravity="start|center_vertical"
+        android:text="Electronic"
+        android:textSize="16sp"
+        android:drawablePadding="@dimen/dp_24"
+        android:padding="@dimen/dp_8"
+        android:drawableStart="@drawable/icon_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View  style="@style/line"/>
+</LinearLayout>

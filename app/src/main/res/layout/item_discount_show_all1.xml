@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    card_view:cardCornerRadius="4dp">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="110dp">
+        <ImageView
+            android:id="@+id/img_view"
+            android:src="@drawable/image_nex"
+            android:paddingRight="2dp"
+            android:layout_width="170dp"
+            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:lines="1"
+                android:id="@+id/tv_title"
+                android:text="Sell Honda Dream C125 new 100%"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="Phnom Penh - 3h ago"
+                android:textSize="10dp"
+                android:id="@+id/location"
+                android:paddingTop="5dp"
+                android:layout_below="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_price"
+                android:text="$3200"
+                android:textColor="@android:color/holo_red_light"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_price1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/tv_price"
+                android:paddingBottom="15dp"
+                android:text="$3200"
+                android:textColor="@color/dack_color" />
+            <ImageButton
+                android:id="@+id/btn_img"
+                android:background="#00FFFFFF"
+                android:src="@drawable/icon_heart"
+                android:paddingBottom="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

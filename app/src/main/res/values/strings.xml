@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Holiday</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Search</string>
+    <string name="action_language">Language</string>
+
+    <string name="menu_profile">Your Profile</string>
+    <string name="menu_post">Your Post</string>
+    <string name="menu_like">Your Like</string>
+    <string name="menu_loan">Your Loan</string>
+    <string name="menu_order">Your Product Order List</string>
+
+    <string name="item_1">Home</string>
+    <string name="item_2">Notification</string>
+    <string name="item_3">Camera</string>
+    <string name="item_4">Message</string>
+    <string name="item_5">Account</string>
+    //FrameHome
+    <string name="txt_buy">Buy</string>
+    <string name="txt_sell">Sell</string>
+    <string name="txt_rent">Rent</string>
+    <string name="txt_pro_discont">Product Discount</string>
+    <string name="txt_new_post">New Post</string>
+    <string name="txt_more">More</string>
+    <string name="title_activity_discount_more_data">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    //Sring hide
+    <string name="hit_tax_type">Tax Type</string>
+    <string name="hit_brand">Brand</string>
+    <string name="hit_year">Year</string>
+    <string name="hit_condition">Condition</string>
+    <string name="hit_price">Price</string>
+    //Button
+    <string name="btn_call">Call</string>
+    <string name="btn_chat">SMS</string>
+    <string name="btn_order">Order</string>
+    <string name="btn_load">Load</string>
+    <string name="title_activity_user_post">User_post</string>
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="#81AFAFAB"
+    android:padding="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtCall"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Call to seller"
+            android:textColor="#160F0F"/>
+        <View
+            android:id="@+id/SplitLine_hor"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/txtCall"
+            android:layout_height= "0dp"
+            android:background="#000"/>
+        <Button
+            android:id="@+id/btnPhone1"
+            android:layout_below="@+id/SplitLine_hor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="086 595 985"
+            android:textColor="#168AE6"
+            android:textSize="18dp"/>
+        <View
+            android:id="@+id/SplitLine_hor1"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/btnPhone1"
+            android:layout_height= "0dp"
+            android:background="#000"/>
+
+        <Button
+            android:id="@+id/btnPhone2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SplitLine_hor1"
+            android:layout_marginTop="2dp"
+            android:textSize="18dp"
+            android:text="093 499 293"
+            android:textColor="#168AE6"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#DFD8D8">
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Cancel"
+            android:textColor="#168AE6"
+            android:textSize="16dp"/>
+    </LinearLayout>
+</LinearLayout>

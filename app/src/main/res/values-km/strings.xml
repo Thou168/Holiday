@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ឈប់សម្រាក</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Search</string>
+    <string name="action_language">Language</string>
+
+    <string name="menu_profile">ប្រវត្តិរូប</string>
+    <string name="menu_post">Your Post</string>
+    <string name="menu_like">ចូលចិត្តរបស់អ្នក</string>
+    <string name="menu_loan">ប្រាក់កម្ចីរបស់អ្នក</string>
+    <string name="menu_order">បញ្ជីលំដាប់ផលិតផលរបស់អ្នក</string>
+
+    <string name="item_1">ផ្ទះ</string>
+    <string name="item_2">សេចក្តីជូនដំណឹង</string>
+    <string name="item_3">កាមេរ៉ា</string>
+    <string name="item_4">សារ</string>
+    <string name="item_5">គណនី</string>
+//FrameHome
+    <string name="txt_buy">ទិញ</string>
+    <string name="txt_sell">លក់</string>
+    <string name="txt_rent">ជួល</string>
+    <string name="txt_pro_discont">ផលិតផលបញ្ចុះតំលៃ</string>
+    <string name="txt_new_post">ផលិតផលថ្មីៗ</string>
+    <string name="txt_more">ច្រើនទៀត</string>
+    <string name="title_activity_discount_more_data">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+//Sring hide
+    <string name="hit_tax_type">Tax Type</string>
+    <string name="hit_brand">Brand</string>
+    <string name="hit_year">Year</string>
+    <string name="hit_condition">Condition</string>
+    <string name="hit_price">Price</string>
+
+
+</resources>

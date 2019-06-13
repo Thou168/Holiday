@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/dp_16"
+    app:layout_constraintCircleRadius="@dimen/dp_4"
+    android:layout_height="wrap_content">
+    <RadioGroup
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RadioButton
+        android:text="Buy"
+        android:padding="@dimen/dp_8"
+        android:paddingLeft="@dimen/dp_16"
+        android:textSize="@dimen/dp_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        <View style="@style/line"/>
+        <RadioButton
+            android:text="Sell"
+            android:padding="@dimen/dp_8"
+            android:paddingLeft="@dimen/dp_16"
+            android:textSize="@dimen/dp_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View style="@style/line"/>
+        <RadioButton
+            android:text="Rent"
+            android:padding="@dimen/dp_8"
+            android:paddingLeft="@dimen/dp_16"
+            android:textSize="@dimen/dp_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+</LinearLayout>

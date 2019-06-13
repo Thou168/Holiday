@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#8DB600</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorHome">#FFC107</color>
+    <color name="colorNotification">#B0BF1A</color>
+    <color name="colorCamera">#7BB661</color>
+    <color name="colorMessage">#8DB600</color>
+    <color name="colorAccount">#5FA777</color>
+    <color name="colorToolbar">#FFFFFF</color>
+    <color name="blue_light">#0F65E6</color>
+    <color name="dack_color">#747474</color>
+    <color name="grey_light">#E0E0E0</color>
+
+    <!-- Placeholder colors-->
+    <color name="stay_color">#999999</color>
+    <color name="twitter_blue">#1da1f2</color>
+    <color name="deep_gray">#ff657786</color>
+    <color name="tab_selected">@color/twitter_blue</color>
+
+</resources>
