@@ -1,6 +1,7 @@
 package com.example.holiday.fragments;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.holiday.New_Activity.User_post;
 import com.example.holiday.R;
+import com.example.holiday.Setting.Setting;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -70,6 +72,12 @@ public class AccountFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.btn_setting).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), Setting.class));
+            }
+        });
         return view;
 
     }

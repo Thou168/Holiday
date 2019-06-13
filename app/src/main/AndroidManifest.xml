@@ -14,9 +14,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".startup.Startup">
 
-        </activity>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <activity android:name=".Setting.Change_Password"></activity>
+        <activity android:name=".Setting.Setting" />
+        <activity android:name=".Login_Register.Register" />
+        <activity android:name=".Login_Register.Login" />
+        <activity android:name=".Login_Register.UserAccount" />
+        <activity android:name=".startup.Startup" />
         <activity android:name=".Buy_sell_rent.Sell.Detail_product.Detail_computer" />
         <activity android:name=".Buy_sell_rent.Sell.Detail_product.Detail_phone" />
         <activity android:name=".Buy_sell_rent.Rent.Detail_product.Detail_Home" />

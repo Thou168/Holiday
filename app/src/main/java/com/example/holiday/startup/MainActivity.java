@@ -27,6 +27,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.holiday.Class_item.Item_horizontal;
+import com.example.holiday.Login_Register.UserAccount;
 import com.example.holiday.New_Activity.Activity_Like;
 import com.example.holiday.R;
 import com.example.holiday.fragments.CameraFragment;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     Locale myLocale;
     String currentLanguage = "en", currentLang;
+    SharedPreferences prefer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(getResources().getColor(R.color.colorHome));
 
+        prefer = getSharedPreferences("Register",MODE_PRIVATE);
 //        DrawerLayout drawer = findViewById(R.id.drawer_layout);
 //        NavigationView navigationView = findViewById(R.id.nav_view);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -279,7 +282,14 @@ public class MainActivity extends AppCompatActivity {
                 fragment = messageFragment;
                 break;
             case 4:
-                fragment = accountFragment;
+                if (prefer.contains("token")){
+                   fragment = accountFragment;
+                }else {
+                    fragment = accountFragment;
+                    Intent intent = new Intent(MainActivity.this, UserAccount.class);
+                    startActivity(intent);
+                }
+              //  fragment = accountFragment;
                 break;
         }
         return fragment;

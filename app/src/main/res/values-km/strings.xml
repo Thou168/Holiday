@@ -43,5 +43,21 @@
     <string name="hit_condition">Condition</string>
     <string name="hit_price">Price</string>
 
+    //user account registration
+    <string name="title_Login">ចូលគណនី  </string>
+    <string name="title_registration">ចុះឈ្មោះដើម្បីប្រកាសផ្សាយពាណិជ្ជកម្មដោយឥតគិតថ្លៃ</string>
+    <string name="phone_number">លេខទូរសព្ទ</string>
+    <string name="Password">ពាក្យសម្ងាត់</string>
+    <string name="confirm">បញ្ជាក់ពាក្យសម្ងាត់</string>
+    <string name="or">ឬ</string>
+    <string name="register_by_facebook">ចុះឈ្មោះដោយប្រើគណនី Facebook របស់អ្នក</string>
 
+    //setting
+    <string name="change_password">ផ្លាស់ប្តូរពាក្យសម្ងាត់</string>
+    <string name="language">ភាសា</string>
+    <string name="language2">ខ្មែរ</string>
+    <string name="setting">ការកំណត់</string>
+    <string name="notification">ការជូនដំណឹង</string>
+    <string name="version">កំណែ</string>
+    <string name="logout">ចាកចេញ</string>
 </resources>

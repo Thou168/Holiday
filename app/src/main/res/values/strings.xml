@@ -1,4 +1,7 @@
 <resources>
+    <string name="facebook_app_id" translatable="false">317399495624020</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb317399495624020</string>
+
     <string name="app_name">Holiday</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -47,4 +50,23 @@
     <string name="btn_order">Order</string>
     <string name="btn_load">Load</string>
     <string name="title_activity_user_post">User_post</string>
+
+    //user account registration
+    <string name="title_Login">Login account</string>
+    <string name="title_registration">Register to post free ad</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="Password">Password</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="or">Or</string>
+    <string name="register_by_facebook">Register by using your facebook account</string>
+
+    //setting
+    <string name="change_password">Change Password</string>
+    <string name="language">Language</string>
+    <string name="language2">English</string>
+    <string name="setting">Setting</string>
+    <string name="notification">Notification</string>
+    <string name="version">Version</string>
+    <string name="logout">Logout</string>
 </resources>
