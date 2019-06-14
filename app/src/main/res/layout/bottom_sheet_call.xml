@@ -15,7 +15,7 @@
             android:layout_height="35dp"
             android:textStyle="bold"
             android:gravity="center"
-            android:text="Call to seller"
+            android:text="Contact to seller"
             android:textColor="#160F0F"/>
         <View
             android:id="@+id/SplitLine_hor"
@@ -31,7 +31,8 @@
             android:textStyle="bold"
             android:text="086 595 985"
             android:textColor="#168AE6"
-            android:textSize="18dp"/>
+            android:textSize="18dp"
+            android:background="@drawable/corner_top"/>
         <View
             android:id="@+id/SplitLine_hor1"
             android:layout_width="match_parent"
@@ -48,7 +49,8 @@
             android:textSize="18dp"
             android:text="093 499 293"
             android:textColor="#168AE6"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:background="@drawable/corner_bottom"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -63,6 +65,7 @@
             android:textStyle="bold"
             android:text="Cancel"
             android:textColor="#168AE6"
-            android:textSize="16dp"/>
+            android:textSize="16dp"
+            android:background="@drawable/corner"/>
     </LinearLayout>
 </LinearLayout>

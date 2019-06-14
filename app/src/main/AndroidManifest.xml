@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Class_item.sheet_view_upload"></activity>
+        <activity android:name=".Edit_Account.Edit_account"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -28,6 +28,7 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
+        <activity android:name=".Class_item.sheet_view_upload" />
         <activity android:name=".Setting.Change_Password" />
         <activity android:name=".Setting.Setting" />
         <activity android:name=".Login_Register.Register" />

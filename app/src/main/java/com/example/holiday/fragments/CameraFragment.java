@@ -23,8 +23,6 @@ import android.widget.Toast;
 import com.example.holiday.Class_item.sheet;
 import com.example.holiday.R;
 
-import studio.carbonylgroup.textfieldboxes.SimpleTextChangedWatcher;
-import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 public class CameraFragment extends Fragment {
 

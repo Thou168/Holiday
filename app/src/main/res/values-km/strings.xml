@@ -60,4 +60,24 @@
     <string name="notification">ការជូនដំណឹង</string>
     <string name="version">កំណែ</string>
     <string name="logout">ចាកចេញ</string>
+//edit account
+    <string name="txt_account_setting">ការកំណត់​គណនី</string>
+    <string name="hit_fistname">ត្រកូល</string>
+    <string name="hit_lastname">ឈ្មោះ</string>
+    <string name="hit_store">ហាង / ឈ្មោះក្រុមហ៊ុន</string>
+    <string name="hit_about_shop">អំពីហាង / ក្រុមហ៊ុន</string>
+    <string name="hit_wingnumber">គណនីវីង / លេខ</string>
+    <string name="hit_wingaccount">វីងគណនី / ឈ្មោះ</string>
+    <string name="hit_dealer">អ្នកចែកចាយ</string>
+
+    //contact
+    <string name="cm_contact">ទំនាក់ទំនង</string>
+    <string name="hit_name">ឈ្មោះ</string>
+    <string name="hit_phone1">ទូរស័ព្ទ ១</string>
+    <string name="hit_phone2">ទូរស័ព្ទ ២</string>
+    <string name="hit_phone3">ទូរស័ព្ទ ៣</string>
+    <string name="hit_email">អ៊ីម៉ែល</string>
+    <string name="hit_Address">អាសយដ្ឋាន</string>
+    <string name="hit_upload_to_contact">Upload this contact to profile</string>
+    <string name="hit_btnsubmit">ដាក់ស្នើ</string>
 </resources>

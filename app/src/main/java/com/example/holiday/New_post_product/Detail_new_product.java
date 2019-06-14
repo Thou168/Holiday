@@ -1,14 +1,25 @@
 package com.example.holiday.New_post_product;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.support.design.widget.BottomSheetDialog;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.holiday.New_Activity.User_post;
+import com.example.holiday.Product_discount.Detail_pro_discount;
 import com.example.holiday.R;
 
 import java.util.ArrayList;
@@ -20,8 +31,12 @@ import ss.com.bannerslider.banners.DrawableBanner;
 import ss.com.bannerslider.banners.RemoteBanner;
 import ss.com.bannerslider.views.BannerSlider;
 
+
 public class Detail_new_product extends AppCompatActivity {
 
+    private static final int REQUEST_CALL = 1;
+    Button btn_call,phone1,phone2,cancel,btn_chat;
+    BottomSheetDialog bottomSheetDialog;
     TextView tv_dis,tv_title,name,price,brand,year,color,condition,prices,text,phone,email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +95,95 @@ public class Detail_new_product extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
+        btn_call = (Button)findViewById(R.id.btn_call);
+        btn_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomsheet(v);
+                phone1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String num = phone.getText().toString();
+                        makePhonecall(num);
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+                phone2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String num = phone2.getText().toString();
+                        makePhonecall(num);
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+            }
+        });
+        btn_chat=(Button)findViewById(R.id.btn_chat);
+        btn_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomsheet(v);
+                phone1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String num = phone.getText().toString();
+                        makeSMS(num);
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+                phone2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String num = phone2.getText().toString();
+                        makeSMS(num);
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+            }
+        });
+    } // create
+
+    public void bottomsheet(View v){
+        View view = LayoutInflater.from(v.getContext()).inflate(R.layout.bottom_sheet_call,null);
+        phone1 = view.findViewById(R.id.btnPhone1);
+        phone2 = view.findViewById(R.id.btnPhone2);
+        cancel = view.findViewById(R.id.btnCancel);
+
+        phone1.setText(getIntent().getStringExtra("phone"));
+
+        bottomSheetDialog = new BottomSheetDialog(v.getContext());
+        bottomSheetDialog.setCancelable(true);
+        bottomSheetDialog.setCanceledOnTouchOutside(true);
+        bottomSheetDialog.setContentView(view);
+        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        bottomSheetDialog.show();
+    }
+    public void makePhonecall(String num){
+
+        if (ContextCompat.checkSelfPermission(Detail_new_product.this, Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(Detail_new_product.this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_CALL);
+        }else {
+            startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+ num)));
+        }
+    }
+    public void makeSMS(String sms){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms",sms,null));
+        startActivity(intent);
+    }
 }
