@@ -1,4 +1,4 @@
-package com.example.holiday.fragments;
+package com.example.holiday.fragments.Buy_sell_rent;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.example.holiday.fragments;
+package com.example.holiday.fragments.Buy_sell_rent;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.holiday.R;
+import com.example.holiday.fragments.MessageFragment;
 import com.example.holiday.startup.MainActivity;
 
 import java.util.Objects;

@@ -46,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:id="@+id/img_title"
             android:src="@drawable/icon_null"
             android:layout_width="20dp"
             android:layout_height="20dp" />
@@ -54,49 +55,20 @@
            android:paddingLeft="@dimen/dp_8"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
-           <TextView
-               android:text="Title"
-               android:textStyle="bold"
-               android:textSize="@dimen/dp_16"
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/txt_input_title"
                android:layout_width="match_parent"
-               android:layout_height="match_parent" />
-           <EditText
-               android:hint="Title"
-               android:lines="1"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content" />
+               android:layout_height="wrap_content">
+               <android.support.design.widget.TextInputEditText
+                   android:id="@+id/title"
+                   android:inputType="text"
+                   android:imeOptions="actionDone"
+                   android:hint="Enter Title"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" />
+
+           </android.support.design.widget.TextInputLayout>
        </LinearLayout>
     </LinearLayout>
     <View style="@style/line"/>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:paddingLeft="@dimen/dp_8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:src="@drawable/icon_null"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="Post Type"
-                android:textStyle="bold"
-                android:textSize="@dimen/dp_16"
-                android:paddingLeft="@dimen/dp_8"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            <EditText
-                android:hint="Post Type"
-                android:lines="1"
-                android:focusable="false"
-                android:id="@+id/choose"
-                android:padding="@dimen/dp_8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

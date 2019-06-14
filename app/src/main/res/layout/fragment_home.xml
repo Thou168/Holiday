@@ -65,6 +65,16 @@
                 app:layout_constraintTop_toTopOf="parent">
             </ss.com.bannerslider.views.BannerSlider>
             <include layout="@layout/sell_buy_rent" />
+            <TextView
+                android:background="@drawable/border_bg"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_8"
+                android:textSize="@dimen/dp_16"
+                android:paddingLeft="@dimen/dp_8"
+                android:hint="Search here"
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
             <include layout="@layout/list_product_discount"/>
             <include layout="@layout/list_product_new_post"/>
         </LinearLayout>

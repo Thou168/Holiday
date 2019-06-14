@@ -11,7 +11,7 @@ import android.os.Bundle;
 import com.example.holiday.R;
 import com.example.holiday.fragments.AccountFragment;
 import com.example.holiday.fragments.CameraFragment;
-import com.example.holiday.fragments.Post_Fragment;
+import com.example.holiday.fragments.Buy_sell_rent.Post_Fragment;
 import com.example.holiday.fragments.MessageFragment;
 
 public class Startup extends AppCompatActivity {

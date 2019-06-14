@@ -39,7 +39,7 @@
         <ImageView
             android:id="@+id/image"
             android:scaleType="fitXY"
-            android:background="@android:color/holo_green_light"
+            android:background="@android:color/darker_gray"
             android:layout_width="match_parent"
             android:layout_height="100dp" />
         <ImageView
@@ -54,6 +54,8 @@
             android:layout_height="match_parent">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_user"
+                app:civ_border_color="@color/colorHome"
+                app:civ_border_width="2dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/slider3" />

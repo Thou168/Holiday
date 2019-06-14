@@ -19,4 +19,14 @@
     <color name="deep_gray">#ff657786</color>
     <color name="tab_selected">@color/twitter_blue</color>
 
+    <style name="MyErrorText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">#DB3069</item>
+    </style>
+
+    <!--Input field style-->
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlActivated">#DB3069</item>
+    </style>
+
 </resources>

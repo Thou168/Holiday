@@ -175,6 +175,14 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 startActivity(intent);
             }
         });
+        view.findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),Search.class);
+                intent.putExtra("items",item_posts);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
