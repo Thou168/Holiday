@@ -22,6 +22,10 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right" />
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#00FFFFFF"/>
     </android.support.v7.widget.Toolbar>
     <android.support.v4.widget.NestedScrollView
         android:fillViewport="true"
@@ -41,10 +45,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
             <ImageView
+                android:id="@+id/imgCover"
                 android:background="#999"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                />
                 <Button
+                    android:id="@+id/btnUpload_Cover"
                     android:text="Upload"
                     android:background="#52444444"
                     android:drawableLeft="@drawable/icon_camera_upload"
@@ -53,22 +61,28 @@
                     android:layout_width="110dp"
                     android:layout_height="30dp" />
             </RelativeLayout>
+
             <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center|bottom"
                 android:layout_width="match_parent"
-                android:layout_height="275dp">
+                android:layout_height="275dp"
+                android:gravity="center|bottom"
+                android:orientation="vertical">
+
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    app:civ_border_width="2dp"
+                    android:src="@drawable/slider5"
                     app:civ_border_color="@color/colorHome"
-                    android:src="@drawable/slider5" />
+                    app:civ_border_width="2dp">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
                 <TextView
-                    android:textSize="@dimen/dp_24"
-                    android:text="User Name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="User Name"
+                    android:textSize="@dimen/dp_24" />
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
