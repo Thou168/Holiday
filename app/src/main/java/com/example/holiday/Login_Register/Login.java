@@ -102,10 +102,16 @@ public class Login extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                String mMessage = e.getMessage().toString();
+                final String mMessage = e.getMessage().toString();
                 Log.w("failure Response", mMessage);
                 mProgress.dismiss();
-                Toast.makeText(getApplicationContext(),"failure Response:"+mMessage,Toast.LENGTH_SHORT).show();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(),"failure Response:"+ mMessage,Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 //call.cancel();
             }
 

@@ -320,18 +320,21 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_chat"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btn_chat"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
+            android:layout_marginStart="20dp"
             android:background="@drawable/shap_ratangle"
             android:text="@string/btn_chat"
             app:layout_constraintBottom_toBottomOf="@+id/btn_call"
             app:layout_constraintEnd_toStartOf="@+id/btn_load"
             app:layout_constraintStart_toEndOf="@+id/btn_call"
-            app:layout_constraintTop_toTopOf="@+id/btn_call" />
+            app:layout_constraintTop_toTopOf="@+id/btn_call"
+            app:layout_constraintVertical_bias="0.0" />
         <Button
-            android:id="@+id/btn_load"
+            android:id="@+id/btn_order"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:background="@drawable/shap_ratangle1"
@@ -340,6 +343,7 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_loan"
             app:layout_constraintStart_toEndOf="@+id/btn_chat"
             app:layout_constraintTop_toTopOf="@+id/btn_chat" />
+
         <Button
             android:id="@+id/btn_loan"
             android:layout_width="wrap_content"

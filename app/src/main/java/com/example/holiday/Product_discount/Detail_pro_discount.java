@@ -33,7 +33,7 @@ import ss.com.bannerslider.views.BannerSlider;
 
 public class Detail_pro_discount extends AppCompatActivity {
 
-    Button btn_call,phone1,phone2,cancel;
+    Button btn_call,phone1,phone2,cancel,btn_chat;
     BottomSheetDialog bottomSheetDialog;
     TextView tv_dis,tv_title,name,price,brand,year,color,condition,prices,discount,text,phone,email;
     ArrayList<Item_Post>items;
@@ -107,7 +107,7 @@ public class Detail_pro_discount extends AppCompatActivity {
                 phone1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String num = phone1.getText().toString();
+                        String num = phone.getText().toString();
                         makePhonecall(num);
                         bottomSheetDialog.dismiss();
                     }
@@ -129,6 +129,37 @@ public class Detail_pro_discount extends AppCompatActivity {
                 });
             }
         });
+        btn_chat=(Button)findViewById(R.id.btn_chat);
+        btn_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomsheet(v);
+                phone1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String num = phone.getText().toString();
+                       makeSMS(num);
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+                phone2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String num = phone2.getText().toString();
+                        makeSMS(num);
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                    }
+                });
+            }
+        });
+
     }
     public void bottomsheet(View v){
         View view = LayoutInflater.from(v.getContext()).inflate(R.layout.bottom_sheet_call,null);
@@ -154,5 +185,8 @@ public class Detail_pro_discount extends AppCompatActivity {
             startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+ num)));
         }
     }
-
+    public void makeSMS(String sms){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms",sms,null));
+        startActivity(intent);
+    }
 }

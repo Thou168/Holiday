@@ -70,14 +70,24 @@
     <string name="version">Version</string>
     <string name="logout">Logout</string>
 
-    <string-array name="planets_array">
-        <item>Mercuryfghdfgh</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
+    //Edit account
+    <string name="txt_account_setting">Account Setting</string>
+    <string name="hit_fistname">Fist Name</string>
+    <string name="hit_lastname">Last Name</string>
+    <string name="hit_store">Store/Company Name</string>
+    <string name="hit_about_shop">About Shop/Company</string>
+    <string name="hit_wingnumber">Wing Account / Number</string>
+    <string name="hit_wingaccount">Wing Account / Name</string>
+    <string name="hit_dealer">Dealer</string>
+
+    //contact
+    <string name="cm_contact">Contact</string>
+    <string name="hit_name">Name</string>
+    <string name="hit_phone1">Phone 1</string>
+    <string name="hit_phone2">Phone 2</string>
+    <string name="hit_phone3">Phone 3</string>
+    <string name="hit_email">E-mail</string>
+    <string name="hit_Address">Address</string>
+    <string name="hit_upload_to_contact">Upload this contact to profile</string>
+    <string name="hit_btnsubmit">Submit</string>
 </resources>

@@ -38,14 +38,8 @@ import com.example.holiday.Product_discount.Discount_more_data;
 import com.example.holiday.R;
 import com.example.holiday.Product_discount.Adapter.Adapter_discount;
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.jaredrummler.materialspinner.MaterialSpinner;
-
-import org.angmarch.views.NiceSpinner;
-import org.angmarch.views.OnSpinnerItemSelectedListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 import ss.com.bannerslider.banners.Banner;
