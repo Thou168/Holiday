@@ -23,7 +23,7 @@ public class Buy extends AppCompatActivity {
     Window window;
     ArrayList<Item_Post> item_type =new ArrayList<>();
     ArrayList<Item_Post>item_posts,item_phone,item_computer,item_motor,item_electronic;
-    TextView tv_home;
+    TextView tv_home,tv_phone,tv_computer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,10 @@ public class Buy extends AppCompatActivity {
 
         tv_home = (TextView)findViewById(R.id.tv_home);
         tv_home.setVisibility(View.GONE);
+        tv_phone = (TextView)findViewById(R.id.tv_iconphone);
+        tv_phone.setVisibility(View.GONE);
+        tv_computer = (TextView)findViewById(R.id.tv_computer);
+        tv_computer.setVisibility(View.GONE);
 
         item_posts = new ArrayList<Item_Post>();
         item_posts = (ArrayList<Item_Post>)getIntent().getSerializableExtra("items");
@@ -60,32 +64,32 @@ public class Buy extends AppCompatActivity {
         TextView title = (TextView)findViewById(R.id.toolbar_title);
         title.setText("Buy");
 
-        getPostbyType("Buy","Phone");
-        item_phone = new ArrayList<>(item_type);
-        findViewById(R.id.tv_iconphone).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), Phone_and_Tablet.class);
-                intent.putExtra("title","Phone and Tablet");
-                intent.putExtra("back","Buy");
-                intent.putExtra("items",item_phone);
-                startActivity(intent);
-            }
-        });
-        item_type.clear();
-     //   item_type.removeAll(item_type);
-        getPostbyType("Buy","Computer");
-        item_computer = new ArrayList<>(item_type);
-        findViewById(R.id.tv_computer).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), Computer_Accessories.class);
-                intent.putExtra("title","Computer and Accessories");
-                intent.putExtra("back","Buy");
-                intent.putExtra("items",item_computer);
-                startActivity(intent);
-            }
-        });
+//        getPostbyType("Buy","Phone");
+//        item_phone = new ArrayList<>(item_type);
+//        findViewById(R.id.tv_iconphone).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getBaseContext(), Phone_and_Tablet.class);
+//                intent.putExtra("title","Phone and Tablet");
+//                intent.putExtra("back","Buy");
+//                intent.putExtra("items",item_phone);
+//                startActivity(intent);
+//            }
+//        });
+//        item_type.clear();
+//     //   item_type.removeAll(item_type);
+//        getPostbyType("Buy","Computer");
+//        item_computer = new ArrayList<>(item_type);
+//        findViewById(R.id.tv_computer).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getBaseContext(), Computer_Accessories.class);
+//                intent.putExtra("title","Computer and Accessories");
+//                intent.putExtra("back","Buy");
+//                intent.putExtra("items",item_computer);
+//                startActivity(intent);
+//            }
+//        });
         item_type.clear();
         getPostbyType("Buy","Motor");
         item_motor = new ArrayList<>(item_type);

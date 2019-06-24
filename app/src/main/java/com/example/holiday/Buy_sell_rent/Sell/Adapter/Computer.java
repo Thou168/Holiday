@@ -34,7 +34,7 @@ public class Computer extends RecyclerView.Adapter<Computer.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = layoutInflater.inflate(R.layout.item_new_post, viewGroup , false);
+        View view = layoutInflater.inflate(R.layout.item_list, viewGroup , false);
 
         return new ViewHolder(view);
     }

@@ -39,7 +39,7 @@ public class CustomFilter extends Filter {
             for (int i=0;i<filterList.size();i++)
             {
                 //CHECK
-                if(filterList.get(i).getTitle().toUpperCase().contains(constraint))
+                if(filterList.get(i).getTitle().toUpperCase().contains(constraint) || filterList.get(i).getProduct_type().toUpperCase().contains(constraint))
                 {
                     //ADD PLAYER TO FILTERED PLAYERS
                     filteredPlayers.add(filterList.get(i));

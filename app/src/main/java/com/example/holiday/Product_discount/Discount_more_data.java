@@ -76,7 +76,7 @@ public class Discount_more_data extends AppCompatActivity {
 
         if(id == R.id.action_swap){
             if(active){
-                item.setIcon(R.drawable.icon_list);
+                item.setIcon(R.drawable.icon_list1);
                 two.setVisibility(View.VISIBLE);
                 one.setVisibility(View.GONE);
                 active = false;

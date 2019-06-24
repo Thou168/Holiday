@@ -20,7 +20,7 @@ import com.example.holiday.Class_item.Item_Post;
 import com.example.holiday.Product_discount.Detail_pro_discount;
 import com.example.holiday.New_Activity.User_post;
 import com.example.holiday.R;
-import com.example.holiday.Class_item.Item_horizontal;
+
 import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -54,7 +54,7 @@ public class Adapter_discount extends RecyclerView.Adapter<Adapter_discount.View
         view.imageView.setImageResource(item.getImage());
         view.image_user.setImageResource(item.getUser_image());
         view.name_user.setText(item.getName());
-        view.price.setText(Double.toString(item.getPrice()));
+        view.price.setText(Double.toString(item.getCast()));
         view.o_price.setText(Double.toString(item.getCast()));
         view.o_price.setPaintFlags(view.o_price.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
     //    view.time.setText(item.getTime());

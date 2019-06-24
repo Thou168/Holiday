@@ -5,17 +5,17 @@
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/pro_new_post"
-        android:paddingLeft="20dp"
-        android:paddingBottom="5dp"
-        android:text="@string/txt_new_post"
-        android:textSize="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
     <android.support.v7.widget.RecyclerView
-        android:layout_below="@+id/pro_new_post"
         android:id="@+id/list_new_post"
+        android:visibility="visible"
+        android:background="#7A999999"
+        android:padding="@dimen/dp_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_item_image"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>

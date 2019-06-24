@@ -22,7 +22,7 @@ import ss.com.bannerslider.views.BannerSlider;
 
 public class Detail_new_product extends AppCompatActivity {
 
-    TextView tv_dis,tv_title,name,price,brand,year,color,condition,prices,text,phone,email;
+    TextView tv_dis,tv_title,name,price,brand,year,color,condition,prices,text,phone,email,type_post;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +52,7 @@ public class Detail_new_product extends AppCompatActivity {
         tv_title.setText(getIntent().getStringExtra("title"));
         name = (TextView)findViewById(R.id.tv_name);
         name.setText(getIntent().getStringExtra("name"));
-        price = (TextView)findViewById(R.id.tv_price);
+        price = (TextView)findViewById(R.id.tv_cost);
         price.setText(Double.toString(getIntent().getDoubleExtra("cost",0)));
         brand = (TextView)findViewById(R.id.tv_year);
         brand.setText(getIntent().getStringExtra("brand"));
@@ -70,6 +70,8 @@ public class Detail_new_product extends AppCompatActivity {
         phone.setText(getIntent().getStringExtra("phone"));
         email = (TextView)findViewById(R.id.tv_email);
         email.setText(getIntent().getStringExtra("email"));
+        type_post = (TextView)findViewById(R.id.type_post);
+        type_post.setText(getIntent().getStringExtra("type_post"));
 
         findViewById(R.id.cr_img).setOnClickListener(new View.OnClickListener() {
             @Override

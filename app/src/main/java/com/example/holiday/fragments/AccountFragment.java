@@ -7,9 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.example.holiday.New_Activity.User_post;
 import com.example.holiday.R;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AccountFragment extends Fragment {
@@ -62,7 +57,6 @@ public class AccountFragment extends Fragment {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
 
-
         view.findViewById(R.id.btn_edit_account).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,12 +76,12 @@ public class AccountFragment extends Fragment {
             Fragment fragment = null;
             switch (position){
                 case 0:
-                    fragment = new fragme_buy_sell_rent();
+                    fragment = new List_user_post();
                     break;
                 case 1:
 //                title_toolbar.setText("Home");
                     fragment = new NotificationFragment();
-                    break;
+                    break; 
             }
             return fragment;
         }

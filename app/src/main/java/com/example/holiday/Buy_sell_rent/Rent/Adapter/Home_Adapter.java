@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.example.holiday.Buy_sell_rent.Rent.Detail_product.Detail_Home;
 import com.example.holiday.Class_item.Item_Post;
-import com.example.holiday.New_post_product.Detail_new_product;
 import com.example.holiday.R;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class Home_Adapter extends RecyclerView.Adapter<Home_Adapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = layoutInflater.inflate(R.layout.item_new_post, viewGroup , false);
+        View view = layoutInflater.inflate(R.layout.item_list, viewGroup , false);
 
         return new ViewHolder(view);
     }

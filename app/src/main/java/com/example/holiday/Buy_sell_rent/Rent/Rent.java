@@ -20,6 +20,7 @@ public class Rent extends AppCompatActivity {
     Window window;
     ArrayList<Item_Post> item_type = new ArrayList<>();
     ArrayList<Item_Post>item_posts,item_home;
+    TextView tv_phone,tv_computer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,11 @@ public class Rent extends AppCompatActivity {
         });
         TextView title = (TextView)findViewById(R.id.toolbar_title);
         title.setText("Rent");
+
+        tv_phone = (TextView)findViewById(R.id.tv_iconphone);
+        tv_phone.setVisibility(View.GONE);
+        tv_computer = (TextView)findViewById(R.id.tv_computer);
+        tv_computer.setVisibility(View.GONE);
 
         item_posts = new ArrayList<Item_Post>();
         item_posts = (ArrayList<Item_Post>)getIntent().getSerializableExtra("items");

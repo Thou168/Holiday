@@ -22,7 +22,7 @@ public class Sell extends AppCompatActivity {
     ArrayList<Item_Post> item_type =new ArrayList<>();
     ArrayList<Item_Post>item_posts,item_phone,item_computer,item_motor,item_electronic;
     Window window;
-    TextView tv_home;
+    TextView tv_home,tv_computer,tv_phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +44,11 @@ public class Sell extends AppCompatActivity {
 
         tv_home = (TextView)findViewById(R.id.tv_home);
         tv_home.setVisibility(View.GONE);
+        tv_phone = (TextView)findViewById(R.id.tv_iconphone);
+        tv_phone.setVisibility(View.GONE);
+        tv_computer = (TextView)findViewById(R.id.tv_computer);
+        tv_computer.setVisibility(View.GONE);
+
 
         item_posts = new ArrayList<Item_Post>();
         item_posts = (ArrayList<Item_Post>)getIntent().getSerializableExtra("items");

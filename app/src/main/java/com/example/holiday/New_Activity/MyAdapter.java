@@ -10,7 +10,6 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 import com.example.holiday.Class_item.Item_Post;
-import com.example.holiday.New_post_product.Adapter.Adapter_new_post;
 import com.example.holiday.R;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> implements Filtera
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //CONVERT XML TO VIEW ONBJ
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_new_post,null);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null);
 
         //HOLDER
         MyHolder holder=new MyHolder(v);
@@ -52,7 +51,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> implements Filtera
         holder.posTxt.setText(Double.toString(items.get(position).getCast()));
         holder.nameTxt.setText(items.get(position).getTitle());
         holder.img.setImageResource(items.get(position).getImage());
-
 
         //IMPLEMENT CLICK LISTENET
         holder.setItemClickListener(new ItemClickListener() {
