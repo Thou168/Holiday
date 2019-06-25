@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         loanlocale();
         setContentView(R.layout.activity_main);
 //        toolbar = findViewById(R.id.toolbar);
-//        toolbar.setTitle("");
+//        toolbar.setTitle(" ");
 //        setSupportActionBar(toolbar);
 //        title_toolbar = (TextView)findViewById(R.id.title_toolbar);
 

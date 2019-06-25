@@ -12,9 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.holiday.Class_item.Item_Post;
-import com.example.holiday.Class_item.Item_buy;
 import com.example.holiday.New_post_product.Detail_new_product;
-import com.example.holiday.Product_discount.Detail_pro_discount;
 import com.example.holiday.R;
 
 import java.util.ArrayList;
@@ -36,7 +34,7 @@ public class Adapter_for_buy extends RecyclerView.Adapter<Adapter_for_buy.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = layoutInflater.inflate(R.layout.item_new_post, viewGroup , false);
+        View view = layoutInflater.inflate(R.layout.item_list, viewGroup , false);
 
         return new ViewHolder(view);
     }

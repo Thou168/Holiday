@@ -11,7 +11,7 @@
         android:id="@+id/linearLayout"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="110dp">
+        android:layout_height="120dp">
         <ImageView
             android:id="@+id/img_view"
             android:paddingRight="2dp"
@@ -22,6 +22,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:lines="1"
+                android:layout_marginEnd="@dimen/dp_24"
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -40,13 +41,20 @@
                 android:paddingBottom="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <ImageButton
+            <TextView
                 android:background="#00FFFFFF"
-                android:src="@drawable/icon_heart"
                 android:paddingBottom="10dp"
+                android:text="view 10"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_width="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="#FFC107"
+                android:textSize="10dp"
+                android:id="@+id/type"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
     </LinearLayout>

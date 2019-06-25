@@ -7,14 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.holiday.Class_item.Item_Post;
-import com.example.holiday.New_Activity.CustomFilter;
 import com.example.holiday.New_post_product.Detail_new_product;
 import com.example.holiday.R;
 
@@ -37,7 +34,7 @@ public class Adapter_new_post extends RecyclerView.Adapter<Adapter_new_post.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = layoutInflater.inflate(R.layout.item_new_post, viewGroup , false);
+        View view = layoutInflater.inflate(R.layout.item_list, viewGroup , false);
 
         return new ViewHolder(view);
     }
@@ -46,8 +43,9 @@ public class Adapter_new_post extends RecyclerView.Adapter<Adapter_new_post.View
     public void onBindViewHolder(@NonNull ViewHolder view, final int i) {
         final Item_Post item = items.get(i);
         view.imageView.setImageResource(item.getImage());
-        view.price.setText(Double.toString(item.getCast()));
+        view.price.setText("$ " +Double.toString(item.getCast()));
         view.title.setText(item.getTitle());
+        view.type.setText(item.getPost_type());
         view.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +79,7 @@ public class Adapter_new_post extends RecyclerView.Adapter<Adapter_new_post.View
         ImageView imageView;
         TextView name_user;
         TextView price;
-        TextView time;
+        TextView time,type;
         TextView title;
         LinearLayout linearLayout;
 
@@ -91,6 +89,7 @@ public class Adapter_new_post extends RecyclerView.Adapter<Adapter_new_post.View
             price = itemView.findViewById(R.id.tv_price);
             time = itemView.findViewById(R.id.location);
             title = itemView.findViewById(R.id.tv_title);
+            type = itemView.findViewById(R.id.type);
             linearLayout = (LinearLayout)itemView.findViewById(R.id.linearLayout);
         }
     }
