@@ -27,6 +27,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.holiday.Edit_Account.Edit_account;
 import com.example.holiday.New_Activity.User_post;
 import com.example.holiday.New_Activity.Utility;
 import com.example.holiday.R;
@@ -93,7 +94,7 @@ public class AccountFragment extends Fragment {
         view.findViewById(R.id.btn_edit_account).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Hello",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(v.getContext(), Edit_account.class));
             }
         });
 

@@ -45,7 +45,7 @@
 
     //user account registration
     <string name="title_Login">ចូលគណនី  </string>
-    <string name="title_registration">ចុះឈ្មោះដើម្បីប្រកាសផ្សាយពាណិជ្ជកម្មដោយឥតគិតថ្លៃ</string>
+    <string name="title_registration">សូមស្វាគមន៍​ មកកាន់កម្មវិធី ទិញ លក់ ជួល ផលិតផលអនឡាញ</string>
     <string name="phone_number">លេខទូរសព្ទ</string>
     <string name="Password">ពាក្យសម្ងាត់</string>
     <string name="confirm">បញ្ជាក់ពាក្យសម្ងាត់</string>

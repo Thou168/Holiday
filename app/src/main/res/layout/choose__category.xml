@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.Choose_category.Choose_Category">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2196F3">
+        <TextView
+            android:id="@+id/toolbar_chooseCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textColor="#ffff"
+            android:textSize="15dp"
+            android:drawableLeft="@drawable/arrow_left_black_24dp"
+            android:gravity="center_vertical"/>
+        <TextView
+            android:id="@+id/title_Choose_Category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:textSize="20dp"
+            android:textColor="#ffff"
+            android:layout_gravity="center_horizontal"
+            />
+    </android.support.v7.widget.Toolbar>
+<ListView
+    android:id="@+id/list_category"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></ListView>
+
+</LinearLayout>

@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.holiday.Login_Register.Convert.Convert_Json_Java;
+import com.example.holiday.Login_Register.Convert.User;
 import com.example.holiday.R;
 import com.example.holiday.startup.MainActivity;
 import com.google.gson.Gson;
@@ -34,6 +36,7 @@ public class Login extends AppCompatActivity {
     private EditText Username,Password;
     private Button btnSubmit;
     private static final String TAG = "Response";
+    private String name,pass;
     private Context context;
     ProgressDialog mProgress;
     SharedPreferences prefer;
@@ -72,12 +75,13 @@ public class Login extends AppCompatActivity {
     }  //create();
 
     public void postRequest() throws IOException, JSONException {
-        String name = Username.getText().toString();
-        String pass= Password.getText().toString();
+        name = Username.getText().toString();
+        pass= Password.getText().toString();
 
 
         MediaType MEDIA_TYPE = MediaType.parse("application/json");
-        String url ="http://192.168.1.239:8000/rest-auth/login/";  // login
+        String url = "http://192.168.1.239:7000/api/v1/rest-auth/login/";
+     //   String url ="http://192.168.1.239:8000/rest-auth/login/";  // login
 
         OkHttpClient client = new OkHttpClient();
         JSONObject postdata = new JSONObject();
@@ -91,7 +95,6 @@ public class Login extends AppCompatActivity {
         }
 
         RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
-
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
@@ -133,14 +136,21 @@ public class Login extends AppCompatActivity {
         Convert_Json_Java convertJsonJava = new Convert_Json_Java();
         try{
             convertJsonJava = gson.fromJson(mMessage,Convert_Json_Java.class);
-            Log.d(TAG, convertJsonJava.getUsername() + "\t" + convertJsonJava.getEmail() + "\t" + convertJsonJava.getKey() + "\t" + convertJsonJava.getStatus());
-            final String key = convertJsonJava.getKey();
+            Log.d(TAG, convertJsonJava.getUsername()   + "\t" + convertJsonJava.getToken() + "\t" + convertJsonJava.getStatus());
+            final String key = convertJsonJava.getToken();
+            User user = convertJsonJava.getUser();
+            final int pk = user.getPk();
+
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     if (key!=null){
                         SharedPreferences.Editor editor = prefer.edit();
                         editor.putString("token",key);
+                        editor.putString("name",name);
+                        editor.putString("pass",pass);
+                        editor.putInt("Pk",pk);
+
                         editor.commit();
 
                         mProgress.dismiss();
