@@ -37,14 +37,14 @@ import okhttp3.Response;
 public class Register extends AppCompatActivity {
     ImageButton btnFacebookLogin;
     private Button btnSubmit;
-    private EditText editPhone,editEmail,editPassword;
+    private EditText editPhone,editComfirmPass,editPassword;
     private static final String TAG = "Response";
     TextView textView;
     private Context context;
     ProgressDialog mProgress;
     SharedPreferences prefer;
     String phone;
-    String email;
+    String comfirm;
     String pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,8 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         editPhone = (EditText) findViewById(R.id.editPhone);
-        editEmail = (EditText)findViewById(R.id.editEmail);
-        editPassword = (EditText)findViewById(R.id.editConfirm);
+        editPassword = (EditText)findViewById(R.id.editPasswordRegister);
+        editComfirmPass = (EditText)findViewById(R.id.editConfirm);
         mProgress = new ProgressDialog(this);
         mProgress.setMessage("Please wait...");
         mProgress.setCancelable(false);
@@ -61,13 +61,18 @@ public class Register extends AppCompatActivity {
 
         prefer = getSharedPreferences("Register",MODE_PRIVATE);
 
+
+
         btnSubmit = (Button)findViewById(R.id.btnSub);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mProgress.show();
                 try {
-                    postRequest();
+
+                        postRequest();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                     mProgress.dismiss();
@@ -81,67 +86,67 @@ public class Register extends AppCompatActivity {
 
     public void postRequest() throws IOException, JSONException {
         phone = editPhone.getText().toString();
-        email= editEmail.getText().toString();
-        pass = editPassword.getText().toString();
+        pass= editPassword.getText().toString();
+        comfirm = editPassword.getText().toString();
 
 
-        MediaType MEDIA_TYPE = MediaType.parse("application/json");
+            MediaType MEDIA_TYPE = MediaType.parse("application/json");
 
-          String url = "http://192.168.1.239:7000/api/v1/users/";
-   //     String url = "http://192.168.1.239:8000/users/";   // register
+            String url = "http://192.168.1.239:7000/api/v1/users/";
+            //     String url = "http://192.168.1.239:8000/users/";   // register
 
-        OkHttpClient client = new OkHttpClient();
+            OkHttpClient client = new OkHttpClient();
+            JSONObject postdata = new JSONObject();
+            JSONObject post_body = new JSONObject();
 
-        JSONObject postdata = new JSONObject();
+            try {
+                postdata.put("username", phone);
+                //     postdata.put("email",pass);
+                postdata.put("password", comfirm);
 
-        JSONObject post_body = new JSONObject();
+                post_body.put("telephone", phone);
 
-        try {
-            postdata.put("username", phone);
-            postdata.put("email",email);
-            postdata.put("password", pass);
+                postdata.put("profile", post_body);
+                postdata.put("groups", new JSONArray("[\"1\"]"));
 
-            post_body.put("telephone",phone);
-
-            postdata.put("profile",post_body);
-            postdata.put("groups",new JSONArray("[\"1\"]"));
-
-        } catch(JSONException e){
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
-
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .header("Accept", "application/json")
-                .header("Content-Type", "application/json")
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                String mMessage = e.getMessage().toString();
-                Log.w("failure Response", mMessage);
-                mProgress.dismiss();
-                Toast.makeText(getApplicationContext(),"failure Response:"+mMessage,Toast.LENGTH_SHORT).show();
-                //call.cancel();
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
 
+            RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
 
-            @Override
-            public void onResponse(Call call, final Response response) throws IOException {
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .build();
+
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    String mMessage = e.getMessage().toString();
+                    Log.w("failure Response", mMessage);
+                    mProgress.dismiss();
+                    Toast.makeText(getApplicationContext(), "failure Response:" + mMessage, Toast.LENGTH_SHORT).show();
+                    //call.cancel();
+                }
 
 
-                final String mMessage = response.body().string();
-                Log.e(TAG, mMessage);
-                converting(mMessage);
+                @Override
+                public void onResponse(Call call, final Response response) throws IOException {
 
-            }
-        });
-    }
+
+                    final String mMessage = response.body().string();
+                    Log.e(TAG, mMessage);
+                    converting(mMessage);
+
+                }
+            });
+
+}
+
 
     private void converting(String mMessage) {
         Gson gson = new Gson();

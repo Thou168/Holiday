@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.icu.text.LocaleDisplayNames;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -31,6 +34,7 @@ import com.google.gson.JsonParseException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -49,8 +53,14 @@ import okhttp3.Response;
 
 public class Edit_account extends AppCompatActivity {
     private static final String TAG = "Response";
+    private LinearLayout layout_public_user,layout_121_dealer;
+    private TextView tvType_121;
+    private EditText etShopName,etShopAddr,etResponsible,etWingNumber_121,etWingName_121,etPhone_121;
     private TextView tvType,tvGender,tvPob,tvLocation,tvAddress,tvMarried;
     private EditText etUsername,etDob,etJob,etWingNumber,etWingName,etPhone;
+    private TextInputLayout tilusername,tildob,tiljob,tilwingnumber,tilwingname,tilphone,tilShopName,tilshopAddr,tilresponsible;
+    private ImageView imgType,imgGender,imgPob,imgLocation,imgAddress,imgMarried,imgtilUsername,imgtilDob,imgtilWingNumber,
+                    imgtilWingName,imgtilPhone,imgtilShopName,imgtilShopAddr,imgtilResponsible;
     private Button btnsubmit;
     private Toolbar toolbar_account;
     private TextView tvBack;
@@ -61,16 +71,47 @@ public class Edit_account extends AppCompatActivity {
     private static final int MARRIED=4;
     private SharedPreferences prefer;
     private int pk ,id;
-    private String type,gender,pob,location,address,married,username,dob,job,wingnumber,wingname,phone;
+    private String type,gender,pob,location,address,married,username,dob,job,wingnumber,wingname,phone,shop_name,shop_addr,responsible_name;
     private String name,pass,Encode,user_id;
     private RequestQueue mQueue;
-    private String id_provinces;
+    private String id_provinces,st;
     private int id_type,ID_type;
     private int g;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_account);
+
+        layout_public_user = (LinearLayout)findViewById(R.id.layout_type_public_user);
+        layout_121_dealer  = (LinearLayout)findViewById(R.id.layout_type_121_dealer);
+
+// public user textview
+        tvType     =(TextView) layout_public_user.findViewById(R.id.tvType);
+        tvGender   = (TextView)layout_public_user.findViewById(R.id.tvGender);
+        tvPob      =(TextView) layout_public_user.findViewById(R.id.tvPob);
+        tvLocation = (TextView)layout_public_user.findViewById(R.id.tvLocation);
+        tvMarried  = (TextView)layout_public_user.findViewById(R.id.tvMarried);
+//public user edittext
+        etUsername  = (EditText)layout_public_user.findViewById(R.id.etUsername);
+        etDob       = (EditText)layout_public_user.findViewById(R.id.etDOB );
+        etJob       = (EditText)layout_public_user.findViewById(R.id.etJob );
+        etWingNumber= (EditText)layout_public_user.findViewById(R.id.etWingNumber );
+        etWingName  = (EditText)layout_public_user.findViewById(R.id.etWingName );
+        etPhone     = (EditText)layout_public_user.findViewById(R.id.etAccount_Phone );
+        etShopName  = (EditText)layout_public_user.findViewById(R.id.etShop_Name);
+        etShopAddr  = (EditText)layout_public_user.findViewById(R.id. etShop_Addr);
+       etResponsible= (EditText)layout_public_user.findViewById(R.id.etResponsible );
+
+// 121 dealer TextView
+        tvType_121 = (TextView) layout_121_dealer.findViewById(R.id.tvType);
+
+// 121 dealer EditText
+        etShopName       =(EditText)layout_121_dealer.findViewById(R.id.etShop_Name);
+        etShopAddr       =(EditText)layout_121_dealer.findViewById(R.id.etShop_Addr );
+        etWingName_121   =(EditText)layout_121_dealer.findViewById(R.id.etWingName );
+        etWingNumber_121 =(EditText)layout_121_dealer.findViewById(R.id.etWingNumber );
+        etResponsible    =(EditText)layout_121_dealer.findViewById(R.id.etResponsible );
+        etPhone_121      =(EditText)layout_121_dealer.findViewById(R.id.etAccount_Phone );
 
         btnsubmit = (Button)findViewById(R.id.btn_EditAccount);
       tvBack = (TextView)findViewById(R.id.tvBack_account);
@@ -81,18 +122,34 @@ public class Edit_account extends AppCompatActivity {
           }
       });
 
-      etUsername = (EditText)findViewById(R.id.etUsername);
-      etDob      = (EditText)findViewById(R.id.etDOB );
-      etJob      = (EditText)findViewById(R.id.etJob );
-      etWingNumber= (EditText)findViewById(R.id.etWingNumber );
-      etWingName  = (EditText)findViewById(R.id.etWingName );
-      etPhone     = (EditText)findViewById(R.id.etAccount_Phone );
+// textinputlayout
+//      tilusername= (TextInputLayout)findViewById(R.id.tilUsername );
+//      tildob     = (TextInputLayout)findViewById(R.id.tilDob );
+//      tiljob     = (TextInputLayout)findViewById(R.id.tilJob );
+//      tilwingnumber= (TextInputLayout)findViewById(R.id.tilWingNumber );
+//      tilwingname= (TextInputLayout)findViewById(R.id.tilWingName );
+//      tilphone   = (TextInputLayout)findViewById(R.id.tilAccount_phone );
+//      tilShopName= (TextInputLayout)findViewById(R.id.tilShop_Name);
+//      tilshopAddr= (TextInputLayout)findViewById(R.id.tilShop_Addr );
+//      tilresponsible= (TextInputLayout)findViewById(R.id.tilResponsible );
 
-      tvType =(TextView) findViewById(R.id.tvType);
-      tvGender = (TextView)findViewById(R.id.tvGender);
-      tvPob =(TextView) findViewById(R.id.tvPob);
-      tvLocation = (TextView)findViewById(R.id.tvLocation);
-      tvMarried = (TextView)findViewById(R.id.tvMarried);
+      imgType            = (ImageView)findViewById(R.id.imgType );
+      imgGender          = (ImageView)findViewById(R.id.imgGender );
+      imgPob             = (ImageView)findViewById(R.id.imgPob );
+      imgLocation        = (ImageView)findViewById(R.id.imgLocation );
+      imgAddress         = (ImageView)findViewById(R.id.imgAccount_Address );
+      imgMarried         = (ImageView)findViewById(R.id.imgMarried );
+      imgtilUsername     = (ImageView)findViewById(R.id.imgUsername);
+      imgtilDob          = (ImageView)findViewById(R.id.imgDob );
+      imgtilWingNumber   = (ImageView)findViewById(R.id.imgWingNumber );
+      imgtilWingName     = (ImageView)findViewById(R.id.imgWingName );
+      imgtilPhone        = (ImageView)findViewById(R.id.imgAccount_Phone );
+      imgtilShopName     = (ImageView)findViewById(R.id.imgShop_name);
+      imgtilShopAddr     = (ImageView)findViewById(R.id.imgShop_Addr);
+      imgtilResponsible  = (ImageView)findViewById(R.id.imgResponsible );
+
+
+
 
         prefer = getSharedPreferences("Register",MODE_PRIVATE);
         if (prefer.contains("token")) {
@@ -111,30 +168,45 @@ public class Edit_account extends AppCompatActivity {
         Encode = getEncodedString(name,pass);
 
         Groups(url,Encode);
-      btnsubmit.setOnClickListener(new View.OnClickListener() {
+        Choose();
+
+
+
+        btnsubmit.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
             PutData(url,Encode);
           }
       });
 
-        Choose();
+
     }  // create
+
+
 
     private void PutData(String url,String encode) {
 
-        username = etUsername.getText().toString();
+        String t = tvType.getText().toString();
 
-        gender   = tvGender.getText().toString().toLowerCase();
-        dob      = etDob.getText().toString();
-        pob      = tvPob.getText().toString();
-        married  = tvMarried.getText().toString().toLowerCase();
-        wingnumber= etWingNumber.getText().toString();
-        wingname  = etWingName.getText().toString();
+        username  = etUsername.getText().toString();
+        gender    = tvGender.getText().toString().toLowerCase();
+        dob       = etDob.getText().toString();
+        pob       = tvPob.getText().toString();
+        married   = tvMarried.getText().toString().toLowerCase();
         phone     = etPhone.getText().toString();
         location  = tvLocation.getText().toString();
         job       = etJob.getText().toString();
+        shop_name        = etShopName.getText().toString();
+        shop_addr        = etShopAddr.getText().toString();
+        responsible_name = etResponsible.getText().toString();
 
+        if (t.equals("Public User") || t.equals("Dealer")){
+            wingnumber = etWingNumber.getText().toString();
+            wingname   = etWingName.getText().toString();
+        }else if (t.equals("121 Dealer")){
+            wingnumber = etWingNumber_121.getText().toString();
+            wingname   = etWingName_121.getText().toString();
+        }
 
         MediaType media = MediaType.parse("application/json");
         OkHttpClient client = new OkHttpClient();
@@ -151,14 +223,21 @@ public class Edit_account extends AppCompatActivity {
 
             pro.put("gender",gender);
             pro.put("data_of_birth",dob);
-            pro.put("place_of_birth",id_provinces);
+            pro.put("address",id_provinces); /////////////
+            pro.put("shop_name",shop_name);
+            pro.put("responsible_officer",responsible_name);
+            pro.put("job",job);
+            pro.put("province",id_provinces); /////////////
             pro.put("marital_status",married);
+            pro.put("shop_address",shop_addr);
             pro.put("wing_account_number",wingnumber);
             pro.put("wing_account_name",wingname);
-            pro.put("job",job);
+
+            pro.put("place_of_birth",id_provinces);
             data.put("profile",pro);
 
-            data.put("groups",new JSONArray("["+id_type+"]"));
+            data.put("groups", new JSONArray("[\"1\"]"));
+            //data.put("groups",new JSONArray("["+id_type+"]"));
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -230,10 +309,13 @@ public class Edit_account extends AppCompatActivity {
                     Log.d(TAG,"Groups:" + g);
                     if (g==1){
                         tvType.setText("Public User");
+
                     }else if (g==2){
                         tvType.setText("121 Dealer");
+
                     }else if (g==3){
                         tvType.setText("Dealer");
+
                     }
 
                 }catch (JsonParseException e){
@@ -253,6 +335,14 @@ public class Edit_account extends AppCompatActivity {
             }
         });
 
+        tvType_121.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),Choose_type.class);
+                intent.putExtra("Choose_Fields","Type");
+                startActivityForResult(intent,TYPE);
+            }
+        });
         tvGender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -292,14 +382,30 @@ public class Edit_account extends AppCompatActivity {
 
     }
 
+    private void UserInformation(String st) {
+        if (st.equals("Public User")){
+            layout_public_user.setVisibility(LinearLayout.VISIBLE);
+            layout_121_dealer.setVisibility(LinearLayout.GONE);
+        }else if (st.equals("121 Dealer")){
+            layout_121_dealer.setVisibility(LinearLayout.VISIBLE);
+            layout_public_user.setVisibility(LinearLayout.GONE);
+
+        }else if (st.equals("Dealer")){
+            layout_public_user.setVisibility(LinearLayout.VISIBLE);
+            layout_121_dealer.setVisibility(LinearLayout.GONE);
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (resultCode == RESULT_OK && requestCode == TYPE && data!=null){
-            String st = data.getStringExtra("field");
+             st = data.getStringExtra("field");
             id_type = data.getIntExtra("id_type",0);
             ID_type = id_type;
             Log.d("Response type:", String.valueOf(id_type));
             tvType.setText(st);
+            tvType_121.setText(st);
+            UserInformation(st);
         }else if (resultCode == RESULT_OK && requestCode == GENDER && data!=null){
             String st = data.getStringExtra("field");
             tvGender.setText(st);
@@ -309,6 +415,7 @@ public class Edit_account extends AppCompatActivity {
                 tvPob.setText(st);
         }else if (resultCode == RESULT_OK && requestCode == LOCATION && data!=null) {
             String st = data.getStringExtra("field");
+            id_provinces = data.getStringExtra("id_province");
             tvLocation.setText(st);
         }else if (resultCode == RESULT_OK && requestCode == MARRIED && data!=null) {
             String st = data.getStringExtra("field");

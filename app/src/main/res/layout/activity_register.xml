@@ -71,7 +71,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
-        android:text="@string/email"
+        android:text="@string/Password"
         android:textColor="#000"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,13 +80,13 @@
         app:layout_constraintTop_toBottomOf="@+id/editPhone" />
 
     <EditText
-        android:id="@+id/editEmail"
+        android:id="@+id/editPasswordRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/my_border1"
         android:ems="8"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
+        android:hint="@string/Password"
+        android:inputType="textPassword"
         android:padding="8sp"
         android:textSize="14sp"
         android:layout_marginStart="24dp"
@@ -111,7 +111,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/editPasswordRegister" />
 
     <EditText
         android:id="@+id/editConfirm"
