@@ -89,7 +89,7 @@ public class Adapter_new_post extends RecyclerView.Adapter<Adapter_new_post.View
             price = itemView.findViewById(R.id.tv_price);
             time = itemView.findViewById(R.id.location);
             title = itemView.findViewById(R.id.tv_title);
-            type = itemView.findViewById(R.id.type);
+            type = itemView.findViewById(R.id.type_post);
             linearLayout = (LinearLayout)itemView.findViewById(R.id.linearLayout);
         }
     }

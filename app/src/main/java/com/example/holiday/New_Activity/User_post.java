@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.holiday.Class_item.Item_Post;
 import com.example.holiday.R;
+import com.example.holiday.fragments.List_user_post;
 import com.example.holiday.fragments.NotificationFragment;
 import com.example.holiday.fragments.Buy_sell_rent.fragme_buy_sell_rent;
 
@@ -80,7 +81,6 @@ public class User_post extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
 
-
     }
     public class PagerAdapter extends FragmentPagerAdapter {
         public PagerAdapter(FragmentManager fm) {
@@ -91,7 +91,7 @@ public class User_post extends AppCompatActivity {
             Fragment fragment = null;
             switch (position){
                 case 0:
-                    fragment = new fragme_buy_sell_rent();
+                    fragment = new List_user_post();
                     break;
                 case 1:
 //                title_toolbar.setText("Home");

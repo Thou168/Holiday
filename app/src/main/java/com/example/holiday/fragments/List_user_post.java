@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class List_user_post extends Fragment {
 
         ArrayList<Item_Post> item_post = transfer_data.getItem();
         ArrayList<Item_Post> items = new ArrayList<>();
+        items.clear();
         for (int i =0;i<item_post.size();i++){
             if(item_post.get(i).getId() == 02){
                items.add(item_post.get(i));

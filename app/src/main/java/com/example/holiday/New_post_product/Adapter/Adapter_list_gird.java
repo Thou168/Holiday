@@ -79,11 +79,11 @@ public class Adapter_list_gird extends RecyclerView.Adapter<Adapter_list_gird.It
         final Item_Post item = mItems.get(position);
         holder.title.setText(item.getTitle());
         holder.iv.setImageResource(item.getImage());
-        holder.price.setText(Double.toString(item.getCast()));
+        holder.price.setText("$ "+Double.toString(item.getCast()));
+        holder.type_post.setText(item.getPost_type());
         if (getItemViewType(position) == TYPE_GRID) {
             holder.name.setText(item.getName());
             holder.img_user.setImageResource(item.getUser_image());
-            holder.type_post.setText(item.getPost_type());
         }
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +126,7 @@ public class Adapter_list_gird extends RecyclerView.Adapter<Adapter_list_gird.It
             super(itemView);
             price = itemView.findViewById(R.id.tv_price);
             linearLayout = itemView.findViewById(R.id.linearLayout);
+            type_post = (TextView) itemView.findViewById(R.id.type_post);
             if (viewType == TYPE_LIST) {
                 iv = (ImageView) itemView.findViewById(R.id.img_view);
                 title = (TextView) itemView.findViewById(R.id.tv_title);
@@ -135,7 +136,7 @@ public class Adapter_list_gird extends RecyclerView.Adapter<Adapter_list_gird.It
                 title = (TextView) itemView.findViewById(R.id.tv_title);
                 name = (TextView) itemView.findViewById(R.id.name_user);
                 img_user = (CircleImageView) itemView.findViewById(R.id.img_user);
-                type_post = (TextView) itemView.findViewById(R.id.type_post);
+
             }
         }
     }

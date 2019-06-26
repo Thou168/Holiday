@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".startup.Login">
+
+    <com.arlib.floatingsearchview.FloatingSearchView
+        android:id="@+id/floating_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:floatingSearch_close_search_on_keyboard_dismiss="true"
+        app:floatingSearch_leftActionMode="showHamburger"
+        app:floatingSearch_searchHint="Search..."
+        app:floatingSearch_showSearchKey="true"
+        app:floatingSearch_suggestionsListAnimDuration="250" />
     <EditText
         android:hint="User Name"
         android:id="@+id/edt_user"

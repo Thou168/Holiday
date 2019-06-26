@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Edit_Account.Edit_account"></activity>
+        <activity android:name=".YourPost_Like.List_Post"></activity>
+        <activity android:name=".Edit_Account.Edit_account" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -52,7 +53,9 @@
         <activity android:name=".Buy_sell_rent.Buy.Category.Phone_and_Tablet" />
         <activity android:name=".Buy_sell_rent.Buy.Buy" />
         <activity android:name=".New_Activity.Detail_new_post" />
-        <activity android:name=".startup.Login" />
+        <activity android:name=".startup.Login" >
+
+        </activity>
         <activity
             android:name=".New_Activity.User_post"
             android:label="@string/title_activity_user_post"

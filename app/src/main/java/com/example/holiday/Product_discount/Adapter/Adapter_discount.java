@@ -62,7 +62,6 @@ public class Adapter_discount extends RecyclerView.Adapter<Adapter_discount.View
         view.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                     if (one) {
                         transfer_data.addyoulike(item);
                         view.imageButton.setImageResource(R.drawable.icon_heart_dack);

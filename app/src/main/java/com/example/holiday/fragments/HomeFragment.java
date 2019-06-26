@@ -15,16 +15,20 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 
 import com.example.holiday.Adapter.Transfer_data;
 import com.example.holiday.Buy_sell_rent.Buy.Buy;
@@ -33,10 +37,12 @@ import com.example.holiday.Buy_sell_rent.Sell.Sell;
 import com.example.holiday.Class_item.Item_Post;
 import com.example.holiday.New_Activity.Activity_Like;
 import com.example.holiday.New_Activity.Search;
+import com.example.holiday.New_Activity.User_post;
 import com.example.holiday.New_post_product.Adapter.Adapter_list_gird;
 import com.example.holiday.Product_discount.Discount_more_data;
 import com.example.holiday.R;
 import com.example.holiday.Product_discount.Adapter.Adapter_discount;
+import com.example.holiday.YourPost_Like.List_Post;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
@@ -165,38 +171,47 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 //        MaterialSpinner spinner = (MaterialSpinner) view.findViewById(R.id.spinner);
 //        spinner.setItems("Ice Cream Sandwich", "Jelly Bean", "KitKat", "Lollipop", "Marshmallow");
 
-//        Spinner spinner1 = (Spinner) view.findViewById(R.id.spinner);
-//        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(),
-//                R.array.planets_array, android.R.layout.simple_spinner_item);
-//        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner1.setAdapter(adapter1);
+        Spinner spinner1 = (Spinner) view.findViewById(R.id.spacer);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getContext(),R.array.category, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter1);
 
-        Button btn = (Button) view.findViewById(R.id.spinner);
-        btn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-              popup = new PopupMenu(getContext(), v);
-               popup.inflate(R.menu.popupmenu);
-               popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                   @Override
-                   public boolean onMenuItemClick(MenuItem item) {
-                       switch (item.getItemId()) {
-                           case R.id.motor:
-                               Intent intent = new Intent(getContext(),Search.class);
-                               intent.putExtra("items",item_posts);
-                               startActivity(intent);
-                               return true;
-                           case R.id.electronic:
-                               // do your code
-                               return true;
-                           default:
-                               return false;
-                       }
-                   }
-               });
-               popup.show();
-           }
-       });
+        Spinner spinner2 = (Spinner) view.findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(),R.array.brand, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter2);
+
+        Spinner spinner3 = (Spinner) view.findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getContext(),R.array.year, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(adapter3);
+
+//        Button btn = (Button) view.findViewById(R.id.spinner);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View v) {
+//              popup = new PopupMenu(getContext(), v);
+//               popup.inflate(R.menu.popupmenu);
+//               popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//                   @Override
+//                   public boolean onMenuItemClick(MenuItem item) {
+//                       switch (item.getItemId()) {
+//                           case R.id.motor:
+//                               Intent intent = new Intent(getContext(),Search.class);
+//                               intent.putExtra("items",item_posts);
+//                               startActivity(intent);
+//                               return true;
+//                           case R.id.electronic:
+//                               // do your code
+//                               return true;
+//                           default:
+//                               return false;
+//                       }
+//                   }
+//               });
+//               popup.show();
+//           }
+//       });
 
 //        Spinner spinner2 = (Spinner) view.findViewById(R.id.spinner2);
 //        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(),
@@ -293,12 +308,26 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 startActivity(intent);
             }
         });
-        view.findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
+//        view.findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(),Search.class);
+//                intent.putExtra("items",item_posts);
+//                startActivity(intent);
+//            }
+//        });
+        EditText editText = (EditText)view.findViewById(R.id.search);
+        editText.clearFocus();
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(),Search.class);
-                intent.putExtra("items",item_posts);
-                startActivity(intent);
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    Intent intent = new Intent(getContext(),Search.class);
+                    intent.putExtra("items",item_posts);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -383,6 +412,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             // Handle the camera action
           //  viewPager.setCurrentItem(4);
         } else if (id == R.id.nav_post) {
+            Intent intent = new Intent(getContext(), List_Post.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_like) {
             startActivity(new Intent(getContext(), Activity_Like.class));

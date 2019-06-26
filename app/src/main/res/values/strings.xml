@@ -45,11 +45,11 @@
     <string name="hit_condition">Condition</string>
     <string name="hit_price">Price</string>
     //Button
-    <string name="btn_call">Call</string>
-    <string name="btn_chat">SMS</string>
-    <string name="btn_order">Order</string>
-    <string name="btn_load">Load</string>
-    <string name="title_activity_user_post">User_post</string>
+    <string name="btn_call" translatable="false">Call</string>
+    <string name="btn_chat" translatable="false">SMS</string>
+    <string name="btn_order" translatable="false">Order</string>
+    <string name="btn_load" translatable="false">Load</string>
+    <string name="title_activity_user_post" translatable="false">User_post</string>
 
     //user account registration
     <string name="title_Login">Login account</string>
@@ -90,4 +90,26 @@
     <string name="hit_Address">Address</string>
     <string name="hit_upload_to_contact">Upload this contact to profile</string>
     <string name="hit_btnsubmit">Submit</string>
+
+    <string-array name="category">
+        <item>Category</item>
+        <item>Motor</item>
+        <item>Eletronic</item>
+    </string-array>
+
+    <string-array name="brand">
+        <item>Brand</item>
+        <item>Honda</item>
+        <item>Yamaha</item>
+        <item>Suzuki</item>
+    </string-array>
+
+    <string-array name="year">
+        <item>Year</item>
+        <item>2010</item>
+        <item>2015</item>
+        <item>2018</item>
+        <item>2019</item>
+    </string-array>
+    
 </resources>

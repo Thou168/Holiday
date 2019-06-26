@@ -45,7 +45,7 @@
                 android:background="#999"
                 android:layout_width="match_parent"
                 android:layout_height="175dp"
-                android:scaleType="fitXY" />
+                android:scaleType="centerCrop" />
                 <Button
                     android:id="@+id/btnUpload_Cover"
                     android:text="Upload"
@@ -62,7 +62,6 @@
                 android:layout_height="250dp"
                 android:gravity="center|bottom"
                 android:orientation="vertical">
-
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
                     android:layout_width="100dp"

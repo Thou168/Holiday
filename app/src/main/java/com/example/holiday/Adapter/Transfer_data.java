@@ -17,11 +17,8 @@ public class Transfer_data {
     public void removelike(int position) {
         this.item_like.remove(position);
     }
-
     public ArrayList<Item_Post> getItem_like() { return this.item_like; }
 
     public ArrayList<Item_Post> getItem() { return this.item_posts; }
-    public void addall(Item_Post itmes) {
-        this.item_posts.add(itmes);
-    }
+    public void addall(Item_Post itmes) { this.item_posts.add(itmes); }
 }
