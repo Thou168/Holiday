@@ -43,6 +43,7 @@ import com.example.holiday.Product_discount.Discount_more_data;
 import com.example.holiday.R;
 import com.example.holiday.Product_discount.Adapter.Adapter_discount;
 import com.example.holiday.YourPost_Like.List_Post;
+import com.example.holiday.startup.User_Active;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
@@ -108,6 +109,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         toolbar.setTitle(" ");
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
         setHasOptionsMenu(true);
+
         drawer = (DrawerLayout) view.findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -182,7 +184,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         spinner2.setAdapter(adapter2);
 
         Spinner spinner3 = (Spinner) view.findViewById(R.id.spinner2);
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getContext(),R.array.year, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(getContext(),R.array.years, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
 
@@ -410,7 +412,9 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         if (id == R.id.nav_profile) {
             // Handle the camera action
-          //  viewPager.setCurrentItem(4);
+//            viewPager.setCurrentItem(4);
+            Intent intent = new Intent(getContext(), User_Active.class);
+            startActivity(intent);
         } else if (id == R.id.nav_post) {
             Intent intent = new Intent(getContext(), List_Post.class);
             startActivity(intent);

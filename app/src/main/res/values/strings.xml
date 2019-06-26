@@ -80,7 +80,7 @@
     <string name="hit_wingaccount">Wing Account / Name</string>
     <string name="hit_dealer">Dealer</string>
 
-    //contact
+    //contFact
     <string name="cm_contact">Contact</string>
     <string name="hit_name">Name</string>
     <string name="hit_phone1">Phone 1</string>
@@ -90,4 +90,151 @@
     <string name="hit_Address">Address</string>
     <string name="hit_upload_to_contact">Upload this contact to profile</string>
     <string name="hit_btnsubmit">Submit</string>
+
+    //choose file in edit_account
+    //type
+    <string-array name="type">
+        <item>Public</item>
+        <item>121 Dealer</item>
+        <item>Other Dealers</item>
+    </string-array>
+
+    //gender
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    //Place of Birth
+    <string-array name="pob">
+        <item>Phnom Penh </item>
+        <item>Kandal Province </item>
+        <item>Siem Reap Province </item>
+        <item>Sihanoukville Province </item>
+        <item>Banteay Meanchey Province </item>
+        <item>Battambang Province </item>
+        <item>Kampong Cham Province </item>
+        <item>Kampong Chhnang Province </item>
+        <item>Kampong Speu Province </item>
+        <item>Kampong Thom Province </item>
+        <item>Kampot Province </item>
+        <item>Koh Kong Province </item>
+        <item>Kep Province </item>
+        <item>Kratié Province </item>
+        <item>Mondulkiri Province </item>
+        <item>Oddar Meanchey Province </item>
+        <item>Pailin Province </item>
+        <item>Preah Vihear Province </item>
+        <item>Pursat Province </item>
+        <item>Prey Veng Province </item>
+        <item>Ratanakiri Province </item>
+        <item>Stung Treng Province </item>
+        <item>Svay Rieng Province </item>
+        <item>Takéo Province </item>
+        <item>Tbong Khmum Province </item>
+    </string-array>
+
+    // married
+    <string-array name="married">
+        <item>Single</item>
+        <item>Married</item>
+        <item>Separated</item>
+        <item>Divorced</item>
+        <item>Windowed</item>
+    </string-array>
+
+    // Choose fields in post (camera tap)
+    //Post type
+    <string-array name="post_type">
+        <item>Buy</item>
+        <item>Sell</item>
+        <item>Rent</item>
+    </string-array>
+    //Category
+    <string-array name="category">
+        <item>Vehicles</item>
+        <item>Electronics</item>
+    </string-array>
+    //Brand
+    <string-array name="brand">
+        <item>Honda</item>
+        <item>Suzuki</item>
+    </string-array>
+    //Type
+    <string-array name="type_elec">
+        <item>TV</item>
+        <item>Air-Conditioner</item>
+        <item>Refrigerator</item>
+        <item>Washing machine</item>
+    </string-array>
+    //Brand motor
+    <string-array name="motor_brand">
+        <item>Honda</item>
+        <item>Yamaha</item>
+        <item>Suzuki</item>
+        <item>Kawazaki</item>
+        <item>BMW</item>
+        <item>KR Motor</item>
+        <item>GPX</item>
+        <item>Keewey</item>
+        <item>Ducati</item>
+        <item>Benelli</item>
+        <item>Other</item>
+    </string-array>
+    // Brand TV
+    <string-array name="tv_brand">
+        <item>Samsung </item>
+        <item>Sony </item>
+        <item>LG </item>
+        <item>Sharp </item>
+        <item>Philips </item>
+        <item>Panasonic </item>
+    </string-array>
+    // Brand Air-conditioners
+    <string-array name="air_conditioner_brand">
+        <item>Samsung </item>
+        <item>LG </item>
+        <item>Sharp </item>
+        <item>Panasonic </item>
+    </string-array>
+
+    //years
+    <string-array name="years">
+        <item>2019</item>
+        <item>2018</item>
+        <item>2017</item>
+        <item>2016</item>
+        <item>2015</item>
+        <item>2014</item>
+        <item>2013</item>
+        <item>2012</item>
+        <item>2011</item>
+        <item>2010</item>
+        <item>1999</item>
+        <item>1998</item>
+        <item>1997</item>
+        <item>1996</item>
+        <item>1995</item>
+        <item>1994</item>
+        <item>1993</item>
+        <item>1992</item>
+        <item>1991</item>
+    </string-array>
+    //Condition
+    <string-array name="condition">
+        <item>New</item>
+        <item>Used</item>
+    </string-array>
+
+    //Rent type
+    <string-array name="rent_type">
+        <item>Week</item>
+        <item>Month</item>
+    </string-array>
+    //Discount type
+    <string-array name="discount_type">
+        <item> % </item>
+        <item> $ </item>
+    </string-array>
 </resources>
