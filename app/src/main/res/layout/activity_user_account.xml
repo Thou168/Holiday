@@ -27,7 +27,7 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:text="Login or Register with your phone number"
-        android:textSize="10sp"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Quick Connect with Facebook"
-        android:textSize="10sp"
+        android:textSize="15dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

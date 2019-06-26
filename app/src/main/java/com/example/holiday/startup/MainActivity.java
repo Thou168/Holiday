@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment = messageFragment;
                 break;
             case 4:
-                if (prefer.contains("token")){
+                if (prefer.contains("token")|| prefer.contains("id")){
                    fragment = accountFragment;
                 }else {
                     fragment = accountFragment;

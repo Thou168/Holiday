@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/my_border1"
         android:hint="@string/phone_number"
-        android:inputType="text"
+        android:inputType="phone"
         android:padding="8sp"
         android:textSize="14sp"
         android:layout_marginStart="24dp"

@@ -14,16 +14,17 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.holiday.Login_Register.Convert.Convert_Json_Java;
 import com.example.holiday.R;
 import com.example.holiday.startup.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.regex.Matcher;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -42,7 +43,7 @@ public class Register extends AppCompatActivity {
     private Context context;
     ProgressDialog mProgress;
     SharedPreferences prefer;
-    String name;
+    String phone;
     String email;
     String pass;
     @Override
@@ -79,20 +80,31 @@ public class Register extends AppCompatActivity {
     } // create
 
     public void postRequest() throws IOException, JSONException {
-        name = editPhone.getText().toString();
+        phone = editPhone.getText().toString();
         email= editEmail.getText().toString();
         pass = editPassword.getText().toString();
 
 
         MediaType MEDIA_TYPE = MediaType.parse("application/json");
-        String url = "http://192.168.1.239:8000/users/";   // register
+
+          String url = "http://192.168.1.239:7000/api/v1/users/";
+   //     String url = "http://192.168.1.239:8000/users/";   // register
 
         OkHttpClient client = new OkHttpClient();
+
         JSONObject postdata = new JSONObject();
+
+        JSONObject post_body = new JSONObject();
+
         try {
-            postdata.put("username", name);
+            postdata.put("username", phone);
             postdata.put("email",email);
             postdata.put("password", pass);
+
+            post_body.put("telephone",phone);
+
+            postdata.put("profile",post_body);
+            postdata.put("groups",new JSONArray("[\"1\"]"));
 
         } catch(JSONException e){
             // TODO Auto-generated catch block
@@ -136,14 +148,21 @@ public class Register extends AppCompatActivity {
         Convert_Json_Java convertJsonJava = new Convert_Json_Java();
         try{
             convertJsonJava = gson.fromJson(mMessage,Convert_Json_Java.class);
-            Log.d(TAG, convertJsonJava.getUsername() + "\t" + convertJsonJava.getEmail() + "\t" + convertJsonJava.getToken() + "\t" + convertJsonJava.getStatus());
-            final String token = convertJsonJava.getToken();
+            int[] gg = convertJsonJava.getGroups();
+            final int g=gg[0];
+            Log.d(TAG, convertJsonJava.getUsername() + "\t" + convertJsonJava.getEmail() + "\t" + convertJsonJava.getId()+ "\t" + g+ "\t"  + convertJsonJava.getStatus());
+            final int id = convertJsonJava.getId();
+
+
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    if (token!=null){
+                    if (id!=0){
                         SharedPreferences.Editor editor =prefer.edit();
-                        editor.putString("token",token);
+                        editor.putInt("id",id);
+                        editor.putString("name",phone);
+                        editor.putString("pass",pass);
+                        editor.putString("groups", String.valueOf(g));
                         editor.commit();
 
                         mProgress.dismiss();
