@@ -1,5 +1,6 @@
 package com.example.holiday.fragments;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -70,6 +71,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(),"Hello",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(v.getContext(),Edit_account.class));
             }
         });
         view.findViewById(R.id.btn_setting).setOnClickListener(new View.OnClickListener() {

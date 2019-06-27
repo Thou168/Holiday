@@ -227,6 +227,15 @@
         <item>Used</item>
     </string-array>
 
+    // Color
+    <string-array name="color">
+        <item>Black</item>
+        <item>Red</item>
+        <item>Gold</item>
+        <item>Yellow</item>
+
+    </string-array>
+
     //Rent type
     <string-array name="rent_type">
         <item>Week</item>

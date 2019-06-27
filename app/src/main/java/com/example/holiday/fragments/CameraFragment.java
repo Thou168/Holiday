@@ -3,12 +3,15 @@ package com.example.holiday.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,23 +19,40 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.holiday.R;
+import com.example.holiday.api.ConsumeAPI;
 import com.example.holiday.fragments.Choose_category.Choose_Category;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class CameraFragment extends Fragment {
-
+    private static final String TAG = "Response";
     private TextView tvPostType,tvCategory,tvType_elec,tvBrand,tvModel,tvYear,tvCondition,tvColor,tvRent,tvDiscount_type;
     private EditText etTitle,etVinCode,etMachineCode,etDescription,etPice,etDiscount_amount,etName,etPhone1,etPhone2,etPhone3,etEmail;
     private ImageView icPostType,icCategory,icType_elec,icBrand,icModel,icYears,icCondition,icColor,icRent,icDiscount_type,
                         icTitile,icVincode,icMachineconde,icDescription,icPrice,icDiscount_amount,icName,icEmail,icPhone1,icPhone2,icPhone3;
+    private Button  submit_post;
     private static final int POST_TYPLE = 0;
     private static final int CATEGORY =1;
     private static final int TYPE_ELEC =2;
@@ -44,6 +64,9 @@ public class CameraFragment extends Fragment {
     private static final int RENT=8;
     private static final int DISCOUNT_TYPE=9;
 
+    private int id,pk;
+    private String name,pass,Encode,user_id;
+    private SharedPreferences prefer;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +75,7 @@ public class CameraFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.post_ad,container,false);
+
 
 //textview ///////
         tvPostType = (TextView)view.findViewById(R.id.tvPostType);
@@ -65,8 +89,18 @@ public class CameraFragment extends Fragment {
         tvRent     = (TextView)view.findViewById(R.id.tvRent);
         tvDiscount_type = (TextView)view.findViewById(R.id.tvDisType);
  // edit text ////
-
-// icon  ////////
+        etTitle           = (EditText)view.findViewById(R.id.etTitle );
+        etVinCode         = (EditText)view.findViewById(R.id.etVinCode );
+        etMachineCode     = (EditText)view.findViewById(R.id.etMachineCode );
+        etDescription     = (EditText)view.findViewById(R.id.etDescription );
+        etPice            = (EditText)view.findViewById(R.id.etPrice );
+        etDiscount_amount = (EditText)view.findViewById(R.id.etDisAmount );
+        etName            = (EditText)view.findViewById(R.id.etName );
+        etPhone1          = (EditText)view.findViewById(R.id.etphone1 );
+        etPhone2          = (EditText)view.findViewById(R.id.etphone2 );
+        etPhone3          = (EditText)view.findViewById(R.id.etphone3 );
+        etEmail           = (EditText)view.findViewById(R.id.etEmail );
+//// icon  ////////
         icPostType   = (ImageView)view.findViewById(R.id.imgPostType);
         icCategory   = (ImageView)view.findViewById(R.id. imgCategory);
         icType_elec  = (ImageView)view.findViewById(R.id.imgType_elec );
@@ -87,13 +121,95 @@ public class CameraFragment extends Fragment {
         icPhone2     = (ImageView)view.findViewById(R.id. imgPhone2 );
         icPhone3     = (ImageView)view.findViewById(R.id. imgPhone3);
         icDiscount_amount = (ImageView)view.findViewById(R.id. imgDisAmount);
-        icDiscount_type = (ImageView)view.findViewById(R.id.imgDisType );
+        icDiscount_type   = (ImageView)view.findViewById(R.id.imgDisType );
 
-
+// get data from sharepreference
+        prefer = this.getActivity().getSharedPreferences("Register",MODE_PRIVATE);
+        if (prefer.contains("token")) {
+            pk = prefer.getInt("Pk",0);
+            user_id = String.valueOf(pk);
+            Log.d(TAG, user_id);
+        }else if (prefer.contains("id")) {
+            id = prefer.getInt("id", 0);
+            user_id = String.valueOf(id);
+            Log.d(TAG, user_id);
+        }
+        name = prefer.getString("name","");
+        pass = prefer.getString("pass","");
+        Encode = getEncodedString(name,pass);
+        submit_post  = (Button)view.findViewById(R.id.btnSubmitPost);
+        submit_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PostData(Encode);
+            }
+        });
 
         Choose();
         return view;
     }// createview
+
+    private String getEncodedString(String username, String password) {
+        final String userpass = username+":"+password;
+        return Base64.encodeToString(userpass.getBytes(),
+                Base64.NO_WRAP);
+    }
+    private void PostData(String encode) {
+        MediaType MEDIA_TYPE = MediaType.parse("application/json");
+
+        String url =String.format("%s%s", ConsumeAPI.BASE_URL,"postsale/");
+
+        OkHttpClient client = new OkHttpClient();
+        JSONObject post = new JSONObject();
+        JSONObject sale = new JSONObject();
+        try {
+
+            post.put("post_type",tvPostType.getText().toString().toLowerCase());
+            post.put("title",etTitle.getText().toString());
+            post.put("category",tvCategory.getText().toString());
+            post.put("type",tvType_elec.getText().toString());
+            post.put("discount",0.0);
+            post.put("created_by", user_id);
+
+            sale.put("sale_status", 2);
+            sale.put("record_status",2);
+            sale.put("sold_date", null);
+            sale.put("price", 1.1);
+            sale.put("total_price", 1.1);
+
+            post.put("sale_post",new JSONArray("["+sale+"]"));
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        RequestBody body = RequestBody.create(MEDIA_TYPE, post.toString());
+        String auth = "Basic " + encode;
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .header("Authorization",auth)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                String mMessage = e.getMessage().toString();
+                Log.d("Failure:",mMessage );
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String message = response.body().string();
+                Log.d("Response",message);
+            }
+        });
+
+    } //postdata
+
 
     private void Choose() {
         tvPostType.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +286,15 @@ public class CameraFragment extends Fragment {
             }
         });
 
+        tvColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Choose_Category.class);
+                intent.putExtra("Choose_category","Color");
+                startActivityForResult(intent,COLOR);
+            }
+        });
+
         tvRent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -222,7 +347,12 @@ public class CameraFragment extends Fragment {
             String st = data.getStringExtra("field");
 
             tvCondition.setText(st);
-        }else if (resultCode == RESULT_OK && requestCode == RENT && data!=null){
+        }else if (resultCode == RESULT_OK && requestCode == COLOR  && data!=null){
+            String st = data.getStringExtra("field");
+
+            tvColor.setText(st);
+
+        } else if (resultCode == RESULT_OK && requestCode == RENT && data!=null){
             String st = data.getStringExtra("field");
 
             tvRent.setText(st);

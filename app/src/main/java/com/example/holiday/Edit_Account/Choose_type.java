@@ -110,10 +110,10 @@ public class Choose_type extends AppCompatActivity {
         String t = null;
         if (st.equals("Type")){
             t="group";
-            url="http://192.168.1.239:7000/api/v1/groups/";
+            url="http://192.168.1.239:8000/api/v1/groups/";
         }else if (st.equals("Location")|st.equals("POB")){
             t="provinces";
-            url = "http://192.168.1.239:7000/api/v1/provinces/";
+            url = "http://192.168.1.239:8000/api/v1/provinces/";
         }
         final String finalT = t;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -137,7 +137,7 @@ public class Choose_type extends AppCompatActivity {
                             }else if (finalT.equals("provinces")){
                                 for (int i=0;i< jsonArray.length(); i++){
                                     JSONObject  field_province = jsonArray.getJSONObject(i);
-                                    String id = field_province.getString("province_id");
+                                    String id = field_province.getString("id");
                                     String province = field_province.getString("province");
                                     datalist_location.add(province);
                                     datalist_id_province.add(id);

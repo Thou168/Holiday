@@ -30,7 +30,7 @@ public class Choose_Category extends AppCompatActivity {
     private String[] Color;
     private String[] Rent;
     private String[] Discount_type;
-    private ArrayAdapter<String> ad_PostType,ad_Category,ad_Type_elec,ad_Motor,ad_AirConditioner,ad_TV,ad_Year,ad_condition,ad_Rent,ad_DiscountType;
+    private ArrayAdapter<String> ad_PostType,ad_Category,ad_Type_elec,ad_Motor,ad_AirConditioner,ad_TV,ad_Year,ad_condition,ad_color,ad_Rent,ad_DiscountType;
 
     String st;
     int position;
@@ -42,15 +42,16 @@ public class Choose_Category extends AppCompatActivity {
 
         listView_Category = (ListView)findViewById(R.id.list_category);
 
-        PostType = getResources().getStringArray(R.array.post_type);
-        Category = getResources().getStringArray(R.array.category );
-        Type_elec= getResources().getStringArray(R.array.type_elec );
-        TV_brand = getResources().getStringArray(R.array.tv_brand );
+        PostType  = getResources().getStringArray(R.array.post_type);
+        Category  = getResources().getStringArray(R.array.category );
+        Type_elec = getResources().getStringArray(R.array.type_elec );
+        TV_brand  = getResources().getStringArray(R.array.tv_brand );
         Motor_band= getResources().getStringArray(R.array.motor_brand);
         Air_conditioner_brand = getResources().getStringArray(R.array.air_conditioner_brand );
-        Years  = getResources().getStringArray(R.array.years );
+        Years     = getResources().getStringArray(R.array.years );
         Condition = getResources().getStringArray(R.array.condition );
-        Rent  = getResources().getStringArray(R.array.rent_type );
+        Color     = getResources().getStringArray(R.array.color);
+        Rent      = getResources().getStringArray(R.array.rent_type );
         Discount_type = getResources().getStringArray(R.array.discount_type );
 
         tv_toolbar = (TextView)findViewById(R.id.toolbar_chooseCategory);
@@ -60,6 +61,7 @@ public class Choose_Category extends AppCompatActivity {
                 finish();
             }
         });
+
         AdapterList();
 
         fields = getIntent().getExtras().getString("Choose_category");
@@ -92,7 +94,12 @@ public class Choose_Category extends AppCompatActivity {
         else if (fields.equals("Condition")){
             st="Condition";
             listView_Category.setAdapter(ad_condition);
-        }else if (fields.equals("Rent")){
+        }
+        else if (fields.equals("Color")){
+            st="Color";
+            listView_Category.setAdapter(ad_color);
+        }
+        else if (fields.equals("Rent")){
             st="Rent";
             listView_Category.setAdapter(ad_Rent);
         }else if (fields.equals("Discount_type")){
@@ -115,6 +122,7 @@ public class Choose_Category extends AppCompatActivity {
         ad_AirConditioner = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1, Air_conditioner_brand );
         ad_Year     = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1,Years );
         ad_condition= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1,Condition );
+        ad_color    = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1,Color);
         ad_Rent     = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1,Rent );
         ad_DiscountType= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1,Discount_type );
 
@@ -136,11 +144,13 @@ public class Choose_Category extends AppCompatActivity {
 
                 }
 
-                else if (st.equals("Years")){  ad= ad_Year.getItem(position);
+                else if (st.equals("Years")){      ad= ad_Year.getItem(position);
 
                 }else if (st.equals("Condition")){ ad= ad_condition.getItem(position);
 
-                }else if (st.equals("Rent")){ ad= ad_Rent.getItem(position);
+                }else if (st.equals("Color")){     ad= ad_color.getItem(position);
+
+                }else if (st.equals("Rent")){      ad= ad_Rent.getItem(position);
 
                 }else if (st.equals("Discount_type")){ ad= ad_DiscountType.getItem(position);
 

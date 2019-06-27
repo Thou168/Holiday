@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
     private EditText user, password;
     private TextView key;
     private static final String TAG = "Response";
-    String http = "http://192.168.1.239:8000/rest-auth/login/";
+ //   String http = "http://192.168.1.239:8000/rest-auth/login/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

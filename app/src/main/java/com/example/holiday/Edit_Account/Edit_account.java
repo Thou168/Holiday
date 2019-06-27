@@ -86,68 +86,7 @@ public class Edit_account extends AppCompatActivity {
         layout_public_user = (LinearLayout)findViewById(R.id.layout_type_public_user);
         layout_121_dealer  = (LinearLayout)findViewById(R.id.layout_type_121_dealer);
 
-// public user textview
-        tvType     =(TextView) layout_public_user.findViewById(R.id.tvType);
-        tvGender   = (TextView)layout_public_user.findViewById(R.id.tvGender);
-        tvPob      =(TextView) layout_public_user.findViewById(R.id.tvPob);
-        tvLocation = (TextView)layout_public_user.findViewById(R.id.tvLocation);
-        tvMarried  = (TextView)layout_public_user.findViewById(R.id.tvMarried);
-//public user edittext
-        etUsername  = (EditText)layout_public_user.findViewById(R.id.etUsername);
-        etDob       = (EditText)layout_public_user.findViewById(R.id.etDOB );
-        etJob       = (EditText)layout_public_user.findViewById(R.id.etJob );
-        etWingNumber= (EditText)layout_public_user.findViewById(R.id.etWingNumber );
-        etWingName  = (EditText)layout_public_user.findViewById(R.id.etWingName );
-        etPhone     = (EditText)layout_public_user.findViewById(R.id.etAccount_Phone );
-        etShopName  = (EditText)layout_public_user.findViewById(R.id.etShop_Name);
-        etShopAddr  = (EditText)layout_public_user.findViewById(R.id. etShop_Addr);
-       etResponsible= (EditText)layout_public_user.findViewById(R.id.etResponsible );
 
-// 121 dealer TextView
-        tvType_121 = (TextView) layout_121_dealer.findViewById(R.id.tvType);
-
-// 121 dealer EditText
-        etShopName       =(EditText)layout_121_dealer.findViewById(R.id.etShop_Name);
-        etShopAddr       =(EditText)layout_121_dealer.findViewById(R.id.etShop_Addr );
-        etWingName_121   =(EditText)layout_121_dealer.findViewById(R.id.etWingName );
-        etWingNumber_121 =(EditText)layout_121_dealer.findViewById(R.id.etWingNumber );
-        etResponsible    =(EditText)layout_121_dealer.findViewById(R.id.etResponsible );
-        etPhone_121      =(EditText)layout_121_dealer.findViewById(R.id.etAccount_Phone );
-
-        btnsubmit = (Button)findViewById(R.id.btn_EditAccount);
-      tvBack = (TextView)findViewById(R.id.tvBack_account);
-      tvBack.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              finish();
-          }
-      });
-
-// textinputlayout
-//      tilusername= (TextInputLayout)findViewById(R.id.tilUsername );
-//      tildob     = (TextInputLayout)findViewById(R.id.tilDob );
-//      tiljob     = (TextInputLayout)findViewById(R.id.tilJob );
-//      tilwingnumber= (TextInputLayout)findViewById(R.id.tilWingNumber );
-//      tilwingname= (TextInputLayout)findViewById(R.id.tilWingName );
-//      tilphone   = (TextInputLayout)findViewById(R.id.tilAccount_phone );
-//      tilShopName= (TextInputLayout)findViewById(R.id.tilShop_Name);
-//      tilshopAddr= (TextInputLayout)findViewById(R.id.tilShop_Addr );
-//      tilresponsible= (TextInputLayout)findViewById(R.id.tilResponsible );
-
-      imgType            = (ImageView)findViewById(R.id.imgType );
-      imgGender          = (ImageView)findViewById(R.id.imgGender );
-      imgPob             = (ImageView)findViewById(R.id.imgPob );
-      imgLocation        = (ImageView)findViewById(R.id.imgLocation );
-      imgAddress         = (ImageView)findViewById(R.id.imgAccount_Address );
-      imgMarried         = (ImageView)findViewById(R.id.imgMarried );
-      imgtilUsername     = (ImageView)findViewById(R.id.imgUsername);
-      imgtilDob          = (ImageView)findViewById(R.id.imgDob );
-      imgtilWingNumber   = (ImageView)findViewById(R.id.imgWingNumber );
-      imgtilWingName     = (ImageView)findViewById(R.id.imgWingName );
-      imgtilPhone        = (ImageView)findViewById(R.id.imgAccount_Phone );
-      imgtilShopName     = (ImageView)findViewById(R.id.imgShop_name);
-      imgtilShopAddr     = (ImageView)findViewById(R.id.imgShop_Addr);
-      imgtilResponsible  = (ImageView)findViewById(R.id.imgResponsible );
 
 
 
@@ -168,6 +107,8 @@ public class Edit_account extends AppCompatActivity {
         pass = prefer.getString("pass","");
         Encode = getEncodedString(name,pass);
 
+
+        Field();
         Groups(url,Encode);
         Choose();
 
@@ -316,6 +257,23 @@ public class Edit_account extends AppCompatActivity {
 
                     }
 
+//                    etUsername.setText(convertJsonJava.getUsername());
+//                    tvGender.setText(convertJsonJava.getGender());
+//                    etDob   .setText(convertJsonJava.getData_of_birth());
+//                    tvPob.setText(convertJsonJava.getPlace_of_birth());
+//                    tvMarried.setText(convertJsonJava.getMarital_status());
+//                    etWingNumber.setText(convertJsonJava.getWing_account_number());
+//                    etWingName.setText(convertJsonJava.getWing_account_name());
+//                    etJob.setText(convertJsonJava.getJob());
+//
+//                    etShopAddr.setText(convertJsonJava.getShop_address());
+//                    etShopName.setText(convertJsonJava.getShop_name());
+//                    etResponsible.setText(convertJsonJava.getResponsible_officer());
+//                    etWingNumber_121.setText(convertJsonJava.getWing_account_number());
+//                    etWingName_121.setText(convertJsonJava.getWing_account_name());
+
+
+
                 }catch (JsonParseException e){
                     e.printStackTrace();
                 }
@@ -392,6 +350,71 @@ public class Edit_account extends AppCompatActivity {
             layout_public_user.setVisibility(LinearLayout.VISIBLE);
             layout_121_dealer.setVisibility(LinearLayout.GONE);
         }
+    }
+
+    private void Field(){
+// public user textview
+        tvType     =(TextView) layout_public_user.findViewById(R.id.tvType);
+        tvGender   = (TextView)layout_public_user.findViewById(R.id.tvGender);
+        tvPob      =(TextView) layout_public_user.findViewById(R.id.tvPob);
+        tvLocation = (TextView)layout_public_user.findViewById(R.id.tvLocation);
+        tvMarried  = (TextView)layout_public_user.findViewById(R.id.tvMarried);
+//public user edittext
+        etUsername  = (EditText)layout_public_user.findViewById(R.id.etUsername);
+        etDob       = (EditText)layout_public_user.findViewById(R.id.etDOB );
+        etJob       = (EditText)layout_public_user.findViewById(R.id.etJob );
+        etWingNumber= (EditText)layout_public_user.findViewById(R.id.etWingNumber );
+        etWingName  = (EditText)layout_public_user.findViewById(R.id.etWingName );
+        etPhone     = (EditText)layout_public_user.findViewById(R.id.etAccount_Phone );
+        etShopName  = (EditText)layout_public_user.findViewById(R.id.etShop_Name);
+        etShopAddr  = (EditText)layout_public_user.findViewById(R.id. etShop_Addr);
+        etResponsible= (EditText)layout_public_user.findViewById(R.id.etResponsible );
+
+// 121 dealer TextView
+        tvType_121 = (TextView) layout_121_dealer.findViewById(R.id.tvType);
+
+// 121 dealer EditText
+        etShopName       =(EditText)layout_121_dealer.findViewById(R.id.etShop_Name);
+        etShopAddr       =(EditText)layout_121_dealer.findViewById(R.id.etShop_Addr );
+        etWingName_121   =(EditText)layout_121_dealer.findViewById(R.id.etWingName );
+        etWingNumber_121 =(EditText)layout_121_dealer.findViewById(R.id.etWingNumber );
+        etResponsible    =(EditText)layout_121_dealer.findViewById(R.id.etResponsible );
+        etPhone_121      =(EditText)layout_121_dealer.findViewById(R.id.etAccount_Phone );
+
+        btnsubmit = (Button)findViewById(R.id.btn_EditAccount);
+        tvBack = (TextView)findViewById(R.id.tvBack_account);
+        tvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+// textinputlayout
+//      tilusername= (TextInputLayout)findViewById(R.id.tilUsername );
+//      tildob     = (TextInputLayout)findViewById(R.id.tilDob );
+//      tiljob     = (TextInputLayout)findViewById(R.id.tilJob );
+//      tilwingnumber= (TextInputLayout)findViewById(R.id.tilWingNumber );
+//      tilwingname= (TextInputLayout)findViewById(R.id.tilWingName );
+//      tilphone   = (TextInputLayout)findViewById(R.id.tilAccount_phone );
+//      tilShopName= (TextInputLayout)findViewById(R.id.tilShop_Name);
+//      tilshopAddr= (TextInputLayout)findViewById(R.id.tilShop_Addr );
+//      tilresponsible= (TextInputLayout)findViewById(R.id.tilResponsible );
+
+        imgType            = (ImageView)findViewById(R.id.imgType );
+        imgGender          = (ImageView)findViewById(R.id.imgGender );
+        imgPob             = (ImageView)findViewById(R.id.imgPob );
+        imgLocation        = (ImageView)findViewById(R.id.imgLocation );
+        imgAddress         = (ImageView)findViewById(R.id.imgAccount_Address );
+        imgMarried         = (ImageView)findViewById(R.id.imgMarried );
+        imgtilUsername     = (ImageView)findViewById(R.id.imgUsername);
+        imgtilDob          = (ImageView)findViewById(R.id.imgDob );
+        imgtilWingNumber   = (ImageView)findViewById(R.id.imgWingNumber );
+        imgtilWingName     = (ImageView)findViewById(R.id.imgWingName );
+        imgtilPhone        = (ImageView)findViewById(R.id.imgAccount_Phone );
+        imgtilShopName     = (ImageView)findViewById(R.id.imgShop_name);
+        imgtilShopAddr     = (ImageView)findViewById(R.id.imgShop_Addr);
+        imgtilResponsible  = (ImageView)findViewById(R.id.imgResponsible );
     }
 
     @Override

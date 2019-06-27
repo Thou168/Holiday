@@ -86,7 +86,7 @@ public class Register extends AppCompatActivity {
         comfirm = editPassword.getText().toString();
 
 
-            MediaType MEDIA_TYPE = MediaType.parse("application/json");
+        MediaType MEDIA_TYPE = MediaType.parse("application/json");
 
         String url =String.format("%s%s", ConsumeAPI.BASE_URL,"api/v1/users/");
    //     String url = "http://192.168.1.239:8000/users/";   // register
