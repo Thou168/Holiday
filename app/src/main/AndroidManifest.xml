@@ -30,7 +30,6 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
-        <activity android:name=".Class_item.sheet_view_upload" />
         <activity android:name=".Setting.Change_Password" />
         <activity android:name=".Setting.Setting" />
         <activity android:name=".Login_Register.Register" />
@@ -55,6 +54,8 @@
         <activity android:name=".Buy_sell_rent.Buy.Buy" />
         <activity android:name=".New_Activity.Detail_new_post" />
         <activity android:name=".startup.Login"></activity>
+        <activity android:name=".startup.Login" />
+        <activity android:name=".YourPost_Like.List_Post"/>
         <activity
             android:name=".New_Activity.User_post"
             android:label="@string/title_activity_user_post"

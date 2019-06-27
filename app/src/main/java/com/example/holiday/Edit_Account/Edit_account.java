@@ -28,6 +28,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.holiday.Login_Register.Convert.Convert_Json_Java;
 import com.example.holiday.R;
+import com.example.holiday.api.ConsumeAPI;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 
@@ -161,7 +162,7 @@ public class Edit_account extends AppCompatActivity {
             user_id = String.valueOf(id);
             Log.d(TAG, user_id);
         }
-        final String url = "http://192.168.1.239:7000/api/v1/users/"+user_id+"/";
+        final String url = String.format("%s%s%s/", ConsumeAPI.BASE_URL,"/api/v1/users/",user_id);
 
         name = prefer.getString("name","");
         pass = prefer.getString("pass","");
@@ -255,7 +256,6 @@ public class Edit_account extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 String message = e.getMessage().toString();
                 Log.d("failure Response",message);
-
             }
 
             @Override
@@ -265,8 +265,6 @@ public class Edit_account extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
     private String getEncodedString(String username, String password) {

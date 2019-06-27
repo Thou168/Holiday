@@ -1,15 +1,13 @@
 package com.example.holiday.fragments;
 
-import android.app.ActionBar;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +20,7 @@ import android.widget.Toast;
 import com.example.holiday.Edit_Account.Edit_account;
 import com.example.holiday.New_Activity.User_post;
 import com.example.holiday.R;
+import com.example.holiday.Setting.Setting;
 import com.example.holiday.fragments.Buy_sell_rent.Post_Fragment;
 import com.example.holiday.fragments.Buy_sell_rent.Sell_fragment;
 import com.example.holiday.fragments.Buy_sell_rent.fragme_buy_sell_rent;

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.holiday.Login_Register.Convert.Convert_Json_Java;
 import com.example.holiday.Login_Register.Convert.User;
 import com.example.holiday.R;
+import com.example.holiday.api.ConsumeAPI;
 import com.example.holiday.startup.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -48,7 +49,6 @@ public class Login extends AppCompatActivity {
         Username = (EditText)findViewById(R.id.editPhoneLogin);
         Password = (EditText)findViewById(R.id.editPasswordLogin);
         btnSubmit = (Button)findViewById(R.id.btnSubmitLogin);
-
         prefer = getSharedPreferences("Register",MODE_PRIVATE);
 
         mProgress = new ProgressDialog(this);
@@ -77,10 +77,8 @@ public class Login extends AppCompatActivity {
     public void postRequest() throws IOException, JSONException {
         name = Username.getText().toString();
         pass= Password.getText().toString();
-
-
         MediaType MEDIA_TYPE = MediaType.parse("application/json");
-        String url = "http://192.168.1.239:7000/api/v1/rest-auth/login/";
+        String url = String.format("%s%s",ConsumeAPI.BASE_URL, "api/v1/rest-auth/login/");
      //   String url ="http://192.168.1.239:8000/rest-auth/login/";  // login
 
         OkHttpClient client = new OkHttpClient();
@@ -114,19 +112,13 @@ public class Login extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"failure Response:"+ mMessage,Toast.LENGTH_SHORT).show();
                     }
                 });
-
                 //call.cancel();
             }
-
-
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-
-
                 final String mMessage = response.body().string();
                 Log.e(TAG, mMessage);
                 converting(mMessage);
-
             }
         });
     }
@@ -150,7 +142,6 @@ public class Login extends AppCompatActivity {
                         editor.putString("name",name);
                         editor.putString("pass",pass);
                         editor.putInt("Pk",pk);
-
                         editor.commit();
 
                         mProgress.dismiss();
@@ -176,6 +167,5 @@ public class Login extends AppCompatActivity {
                 }
             });
         }
-
     }
 }

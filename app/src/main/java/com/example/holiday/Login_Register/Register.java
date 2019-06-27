@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.holiday.Login_Register.Convert.Convert_Json_Java;
 import com.example.holiday.R;
+import com.example.holiday.api.ConsumeAPI;
 import com.example.holiday.startup.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
@@ -61,18 +62,13 @@ public class Register extends AppCompatActivity {
 
         prefer = getSharedPreferences("Register",MODE_PRIVATE);
 
-
-
         btnSubmit = (Button)findViewById(R.id.btnSub);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 mProgress.show();
                 try {
-
-                        postRequest();
-
+                    postRequest();
                 } catch (IOException e) {
                     e.printStackTrace();
                     mProgress.dismiss();
@@ -92,12 +88,12 @@ public class Register extends AppCompatActivity {
 
             MediaType MEDIA_TYPE = MediaType.parse("application/json");
 
-            String url = "http://192.168.1.239:7000/api/v1/users/";
-            //     String url = "http://192.168.1.239:8000/users/";   // register
+        String url =String.format("%s%s", ConsumeAPI.BASE_URL,"api/v1/users/");
+   //     String url = "http://192.168.1.239:8000/users/";   // register
 
-            OkHttpClient client = new OkHttpClient();
-            JSONObject postdata = new JSONObject();
-            JSONObject post_body = new JSONObject();
+        OkHttpClient client = new OkHttpClient();
+        JSONObject postdata = new JSONObject();
+        JSONObject post_body = new JSONObject();
 
             try {
                 postdata.put("username", phone);
@@ -109,19 +105,19 @@ public class Register extends AppCompatActivity {
                 postdata.put("profile", post_body);
                 postdata.put("groups", new JSONArray("[\"1\"]"));
 
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        } catch(JSONException e){
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-            RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
+        RequestBody body = RequestBody.create(MEDIA_TYPE, postdata.toString());
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .post(body)
-                    .header("Accept", "application/json")
-                    .header("Content-Type", "application/json")
-                    .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .build();
 
             client.newCall(request).enqueue(new Callback() {
                 @Override
@@ -134,19 +130,17 @@ public class Register extends AppCompatActivity {
                 }
 
 
-                @Override
-                public void onResponse(Call call, final Response response) throws IOException {
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
 
 
-                    final String mMessage = response.body().string();
-                    Log.e(TAG, mMessage);
-                    converting(mMessage);
+                final String mMessage = response.body().string();
+                Log.e(TAG, mMessage);
+                converting(mMessage);
 
-                }
-            });
-
-}
-
+            }
+        });
+    }
 
     private void converting(String mMessage) {
         Gson gson = new Gson();
