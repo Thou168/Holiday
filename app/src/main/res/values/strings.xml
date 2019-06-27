@@ -243,7 +243,7 @@
     </string-array>
     //Discount type
     <string-array name="discount_type">
-        <item> % </item>
-        <item> $ </item>
+        <item> Amount</item>
+        <item> Percentage </item>
     </string-array>
 </resources>

@@ -49,7 +49,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class CameraFragment extends Fragment {
     private static final String TAG = "Response";
     private TextView tvPostType,tvCategory,tvType_elec,tvBrand,tvModel,tvYear,tvCondition,tvColor,tvRent,tvDiscount_type;
-    private EditText etTitle,etVinCode,etMachineCode,etDescription,etPice,etDiscount_amount,etName,etPhone1,etPhone2,etPhone3,etEmail;
+    private EditText etTitle,etVinCode,etMachineCode,etDescription,etPrice,etDiscount_amount,etName,etPhone1,etPhone2,etPhone3,etEmail;
     private ImageView icPostType,icCategory,icType_elec,icBrand,icModel,icYears,icCondition,icColor,icRent,icDiscount_type,
                         icTitile,icVincode,icMachineconde,icDescription,icPrice,icDiscount_amount,icName,icEmail,icPhone1,icPhone2,icPhone3;
     private Button  submit_post;
@@ -93,7 +93,7 @@ public class CameraFragment extends Fragment {
         etVinCode         = (EditText)view.findViewById(R.id.etVinCode );
         etMachineCode     = (EditText)view.findViewById(R.id.etMachineCode );
         etDescription     = (EditText)view.findViewById(R.id.etDescription );
-        etPice            = (EditText)view.findViewById(R.id.etPrice );
+        etPrice            = (EditText)view.findViewById(R.id.etPrice );
         etDiscount_amount = (EditText)view.findViewById(R.id.etDisAmount );
         etName            = (EditText)view.findViewById(R.id.etName );
         etPhone1          = (EditText)view.findViewById(R.id.etphone1 );
@@ -164,21 +164,60 @@ public class CameraFragment extends Fragment {
         JSONObject sale = new JSONObject();
         try {
 
-            post.put("post_type",tvPostType.getText().toString().toLowerCase());
-            post.put("title",etTitle.getText().toString());
-            post.put("category",tvCategory.getText().toString());
-            post.put("type",tvType_elec.getText().toString());
-            post.put("discount",0.0);
-            post.put("created_by", user_id);
+//            post.put("post_type",tvPostType.getText().toString().toLowerCase());
+//            post.put("title",etTitle.getText().toString());
+//            post.put("category",tvCategory.getText().toString());
+//            post.put("type",tvType_elec.getText().toString());
+//            post.put("discount","0.00");
+//            post.put("created_by", user_id);
+//            post.put("condition","new");
+//            post.put("discount_type","amount");
+//            post.put("contact_phone","012345620");
+//            post.put("cost",0);
 
-            sale.put("sale_status", 2);
-            sale.put("record_status",2);
-            sale.put("sold_date", null);
-            sale.put("price", 1.1);
-            sale.put("total_price", 1.1);
+                    post.put("title",etTitle.getText().toString().toLowerCase() );
+                    post.put("category", tvCategory.getText().toString().toLowerCase());
+                    post.put("status", "");
+                    post.put("condition",tvCondition.getText().toString().toLowerCase() );
+                    post.put("discount_type", tvDiscount_type.getText().toString().toLowerCase() );
+                    post.put("discount", etDiscount_amount.getText().toString());
+                    post.put("user",null );
+                    post.put("front_image_path", null);
+                    post.put("right_image_path", null);
+                    post.put("left_image_path", null);
+                    post.put("back_image_path", null);
+                    post.put("created", "");
+                    post.put("created_by", user_id);
+                    post.put("modified", null);
+                    post.put("modified_by", null);
+                    post.put("approved_date", null);
+                    post.put("approved_by", null);
+                    post.put("rejected_date", null);
+                    post.put("rejected_by",null);
+                    post.put("rejected_comments", "");
+                    post.put("year", tvYear.getText().toString().toLowerCase());
+                    post.put("modeling", tvModel.getText().toString().toLowerCase());
+                    post.put("description", etDescription.getText().toString().toLowerCase());
+                    post.put("cost", etPrice.getText().toString().toLowerCase());
+                    post.put("post_type",tvPostType.getText().toString().toLowerCase() );
+                    post.put("vin_code", etVinCode.getText().toString().toLowerCase());
+                    post.put("machine_code", etMachineCode.getText().toString().toLowerCase());
+                    post.put("type", tvType_elec.getText().toString().toLowerCase());
+                    post.put("contact_phone", etPhone1.getText().toString().toLowerCase());
+                    post.put("contact_email", etEmail.getText().toString().toLowerCase() );
+                    post.put("contact_address", "");
+                    post.put("color", tvColor.getText().toString().toLowerCase());
 
-            post.put("sale_post",new JSONArray("["+sale+"]"));
 
+                    sale.put("sale_status", 2);
+                    sale.put("record_status",2);
+                    sale.put("sold_date", null);
+                    sale.put("price", etPrice.getText().toString().toLowerCase());
+                    sale.put("total_price", etPrice.getText().toString().toLowerCase());
+
+                    post.put("sale_post",new JSONArray("["+sale+"]"));
+
+         //   Log.d("Response",post.toString());
         }catch (Exception e){
             e.printStackTrace();
         }
