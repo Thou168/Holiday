@@ -424,7 +424,11 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         } else if (id == R.id.nav_loan) {
 
-        } else if (id == R.id.nav_order) {
+        } else if (id == R.id.nav_sing_out) {
+
+        }else if (id == R.id.nav_about){
+
+        }else if (id == R.id.nav_privacy){
 
         }
         drawer.closeDrawer(GravityCompat.START);

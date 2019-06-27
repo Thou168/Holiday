@@ -13,7 +13,9 @@
     <string name="menu_post">Your Post</string>
     <string name="menu_like">ចូលចិត្តរបស់អ្នក</string>
     <string name="menu_loan">ប្រាក់កម្ចីរបស់អ្នក</string>
-    <string name="menu_order">បញ្ជីលំដាប់ផលិតផលរបស់អ្នក</string>
+    <string name="menu_sign_out">Sign Out</string>
+    <string name="menu_about">About Us</string>
+    <string name="menu_privacy">Sign Out</string>
 
     <string name="item_1">ផ្ទះ</string>
     <string name="item_2">សេចក្តីជូនដំណឹង</string>

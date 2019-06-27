@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(getResources().getColor(R.color.colorHome));
+        window.setStatusBarColor(getResources().getColor(R.color.colorMessage));
 
         prefer = getSharedPreferences("Register",MODE_PRIVATE);
 //        DrawerLayout drawer = findViewById(R.id.drawer_layout);

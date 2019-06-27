@@ -12,6 +12,7 @@
     <color name="blue_light">#0F65E6</color>
     <color name="dack_color">#747474</color>
     <color name="grey_light">#E0E0E0</color>
+    <color name="color_bar">#8DB600</color>
 
     <!-- Placeholder colors-->
     <color name="stay_color">#999999</color>

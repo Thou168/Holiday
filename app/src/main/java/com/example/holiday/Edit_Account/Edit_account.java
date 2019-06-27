@@ -272,8 +272,6 @@ public class Edit_account extends AppCompatActivity {
 //                    etWingNumber_121.setText(convertJsonJava.getWing_account_number());
 //                    etWingName_121.setText(convertJsonJava.getWing_account_name());
 
-
-
                 }catch (JsonParseException e){
                     e.printStackTrace();
                 }

@@ -2,7 +2,7 @@
     <string name="facebook_app_id" translatable="false">317399495624020</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb317399495624020</string>
 
-    <string name="app_name">Holiday</string>
+    <string name="app_name">121 Shoppe</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -15,7 +15,9 @@
     <string name="menu_post">Your Post</string>
     <string name="menu_like">Your Like</string>
     <string name="menu_loan">Your Loan</string>
-    <string name="menu_order">Your Product Order List</string>
+    <string name="menu_sign_out">Sign Out</string>
+    <string name="menu_about">About Us</string>
+    <string name="menu_privacy">Sign Out</string>
 
     <string name="item_1">Home</string>
     <string name="item_2">Notification</string>
