@@ -1,11 +1,14 @@
 package com.example.holiday.api;
 
+import android.content.Context;
 import android.util.Base64;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.holiday.YourPost_Like.List_Post;
 import com.example.holiday.models.BrandViewModel;
 import com.example.holiday.models.CategoryViewModel;
@@ -53,7 +56,8 @@ public class CommonFunction {
         return yearList;
     }
 
-    public static List<CategoryViewModel> getCategoriesList(String username,String password){
+    public static List<CategoryViewModel> getCategoriesList(RequestQueue mQueue,String username, String password){
+        //RequestQueue mQueue=new Volley.newRequestQueue(context);
         final List<CategoryViewModel> categories=new ArrayList<CategoryViewModel>();
         String API_ENDPOINT=String.format("%s%s",ConsumeAPI.BASE_URL,"api/v1/categories/");
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, API_ENDPOINT, null, new Response.Listener<JSONObject>() {
@@ -75,6 +79,7 @@ public class CommonFunction {
                 error.printStackTrace();
             }
         });
+        mQueue.add(request);
         return categories;
     }
 

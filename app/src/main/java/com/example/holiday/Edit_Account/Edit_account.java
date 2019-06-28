@@ -96,7 +96,7 @@ public class Edit_account extends AppCompatActivity {
             user_id = String.valueOf(id);
             Log.d(TAG, user_id);
         }
-        final String url = String.format("%s%s%s/", ConsumeAPI.BASE_URL,"/api/v1/users/",user_id);
+        final String url = String.format("%s%s%s/", ConsumeAPI.BASE_URL,"api/v1/users/",user_id);
 
         name = prefer.getString("name","");
         pass = prefer.getString("pass","");

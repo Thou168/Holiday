@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.holiday.R;
+import com.example.holiday.api.ConsumeAPI;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -110,10 +111,12 @@ public class Choose_type extends AppCompatActivity {
         String t = null;
         if (st.equals("Type")){
             t="group";
-            url="http://192.168.1.239:8000/api/v1/groups/";
+
+            url =String.format("%s%s", ConsumeAPI.BASE_URL,"api/v1/groups/");
         }else if (st.equals("Location")|st.equals("POB")){
             t="provinces";
-            url = "http://192.168.1.239:8000/api/v1/provinces/";
+
+            url =String.format("%s%s", ConsumeAPI.BASE_URL,"api/v1/provinces/");
         }
         final String finalT = t;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -136,6 +139,7 @@ public class Choose_type extends AppCompatActivity {
                                 }
                             }else if (finalT.equals("provinces")){
                                 for (int i=0;i< jsonArray.length(); i++){
+
                                     JSONObject  field_province = jsonArray.getJSONObject(i);
                                     String id = field_province.getString("id");
                                     String province = field_province.getString("province");

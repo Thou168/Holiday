@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.example.holiday.R;
 import com.example.holiday.api.ConsumeAPI;
 import com.example.holiday.fragments.Choose_category.Choose_Category;
+import com.example.holiday.startup.MainActivity;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -64,7 +65,8 @@ public class CameraFragment extends Fragment {
     private static final int COLOR=7;
     private static final int RENT=8;
     private static final int DISCOUNT_TYPE=9;
-
+    private int id_year;
+    private int id_category;
     private int id,pk;
     private String name,pass,Encode,user_id;
     private SharedPreferences prefer;
@@ -76,7 +78,9 @@ public class CameraFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.post_ad,container,false);
-        //textview ///////
+
+
+//textview ///////
         tvPostType = (TextView)view.findViewById(R.id.tvPostType);
         tvCategory = (TextView)view.findViewById(R.id.tvCategory);
         tvType_elec= (TextView)view.findViewById(R.id.tvType_elec);
@@ -87,7 +91,7 @@ public class CameraFragment extends Fragment {
         tvColor    = (TextView)view.findViewById(R.id.tvColor);
         tvRent     = (TextView)view.findViewById(R.id.tvRent);
         tvDiscount_type = (TextView)view.findViewById(R.id.tvDisType);
-        // edit text ////
+ // edit text ////
         etTitle           = (EditText)view.findViewById(R.id.etTitle );
         etVinCode         = (EditText)view.findViewById(R.id.etVinCode );
         etMachineCode     = (EditText)view.findViewById(R.id.etMachineCode );
@@ -99,7 +103,7 @@ public class CameraFragment extends Fragment {
         etPhone2          = (EditText)view.findViewById(R.id.etphone2 );
         etPhone3          = (EditText)view.findViewById(R.id.etphone3 );
         etEmail           = (EditText)view.findViewById(R.id.etEmail );
-        //// icon  ////////
+//// icon  ////////
         icPostType   = (ImageView)view.findViewById(R.id.imgPostType);
         icCategory   = (ImageView)view.findViewById(R.id. imgCategory);
         icType_elec  = (ImageView)view.findViewById(R.id.imgType_elec );
@@ -122,7 +126,7 @@ public class CameraFragment extends Fragment {
         icDiscount_amount = (ImageView)view.findViewById(R.id. imgDisAmount);
         icDiscount_type   = (ImageView)view.findViewById(R.id.imgDisType );
 
-        // get data from sharepreference
+// get data from sharepreference
         prefer = this.getActivity().getSharedPreferences("Register",MODE_PRIVATE);
         if (prefer.contains("token")) {
             pk = prefer.getInt("Pk",0);
@@ -217,6 +221,7 @@ public class CameraFragment extends Fragment {
                     sale.put("sold_date", null);
                     sale.put("price", etPrice.getText().toString().toLowerCase());
                     sale.put("total_price", etPrice.getText().toString().toLowerCase());
+
                     post.put("sale_post",new JSONArray("["+sale+"]"));
                     break;
                 case "rent":
@@ -288,13 +293,14 @@ public class CameraFragment extends Fragment {
 
                 }
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    String message = response.body().string();
-                    Log.d("Response",message);
-                }
-            });
-         //   Log.d("Response",post.toString());
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String message = response.body().string();
+                Log.d("Response",message);
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -415,7 +421,8 @@ public class CameraFragment extends Fragment {
             tvPostType.setText(st);
         }else if (resultCode == RESULT_OK && requestCode == CATEGORY && data!=null){
             String st = data.getStringExtra("field");
-            if (st.equals("Vehicles")) {
+            id_category =data.getIntExtra("id_year_category",0);
+            if (st.equals("Motobike")) {
                 tvType_elec.setVisibility(View.GONE);
                 icType_elec.setVisibility(View.GONE);
             }else {
