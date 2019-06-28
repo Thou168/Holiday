@@ -62,7 +62,6 @@
         <activity android:name=".startup.Login" />
         <activity android:name=".startup.Login" />
         <activity android:name=".YourPost_Like.List_Post" />
-        <activity
         <activity android:name=".startup.Login"></activity>
         <activity android:name=".loan.LoanCreateActivity"/>
             android:name=".New_Activity.User_post"

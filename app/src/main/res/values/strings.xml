@@ -155,11 +155,13 @@
     </string-array>
     //Category
     <string-array name="category">
+        <item>Category</item>
         <item>Vehicles</item>
         <item>Electronics</item>
     </string-array>
     //Brand
     <string-array name="brand">
+        <item>Brand</item>
         <item>Honda</item>
         <item>Suzuki</item>
     </string-array>
@@ -172,6 +174,7 @@
     </string-array>
     //Brand motor
     <string-array name="motor_brand">
+
         <item>Honda</item>
         <item>Yamaha</item>
         <item>Suzuki</item>
@@ -203,6 +206,7 @@
 
     //years
     <string-array name="years">
+        <item>Year</item>
         <item>2019</item>
         <item>2018</item>
         <item>2017</item>

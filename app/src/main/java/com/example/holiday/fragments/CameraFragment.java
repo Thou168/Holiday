@@ -338,20 +338,20 @@ public class CameraFragment extends Fragment {
         tvBrand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String category= tvCategory.getText().toString();
-                String type_elec = tvType_elec.getText().toString();
-                String st;
-                if (category.equals("Vehicles")){
-                    st=category;
-                    Intent intent = new Intent(v.getContext(), Choose_Category.class);
-                    intent.putExtra("Choose_category",st);
-                    startActivityForResult(intent,BRAND);
-                }else {
-                    st= type_elec;
-                    Intent intent = new Intent(v.getContext(), Choose_Category.class);
-                    intent.putExtra("type_elec",st);
-                    startActivityForResult(intent,BRAND);
-                }
+//                String category= tvCategory.getText().toString();
+//                String type_elec = tvType_elec.getText().toString();
+//                String st;
+//                if (category.equals("Vehicles")){
+//                    st=category;
+//                    Intent intent = new Intent(v.getContext(), Choose_Category.class);
+//                    intent.putExtra("Choose_category",st);
+//                    startActivityForResult(intent,BRAND);
+//                }else {
+//                    st= type_elec;
+//                    Intent intent = new Intent(v.getContext(), Choose_Category.class);
+//                    intent.putExtra("type_elec",st);
+//                    startActivityForResult(intent,BRAND);
+//                }
             }
         });
 
