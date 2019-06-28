@@ -71,6 +71,7 @@
                 android:background="@drawable/border_bg"
                 android:layout_marginLeft="@dimen/dp_8"
                 android:layout_marginRight="@dimen/dp_8"
+                android:focusableInTouchMode="false"
                 android:textSize="@dimen/dp_16"
                 android:paddingLeft="@dimen/dp_8"
                 android:hint="Search here"

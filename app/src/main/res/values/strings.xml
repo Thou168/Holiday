@@ -15,9 +15,9 @@
     <string name="menu_post">Your Post</string>
     <string name="menu_like">Your Like</string>
     <string name="menu_loan">Your Loan</string>
-    <string name="menu_sign_out">Sign Out</string>
+    <string name="menu_setting">Setting</string>
     <string name="menu_about">About Us</string>
-    <string name="menu_privacy">Sign Out</string>
+    <string name="menu_privacy">Term of Privacy</string>
 
     <string name="item_1">Home</string>
     <string name="item_2">Notification</string>

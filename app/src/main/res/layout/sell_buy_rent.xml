@@ -32,8 +32,9 @@
                 android:id="@+id/img_buy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_buy" />
+                android:src="@drawable/ic_shopping_cart_black_24dp" />
             <TextView
+                android:textStyle="bold"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/img_buy"
@@ -65,9 +66,10 @@
                 android:id="@+id/img_sell"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_sellx" />
+                android:src="@drawable/icon_sell" />
 
             <TextView
+                android:textStyle="bold"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/img_sell"
@@ -100,9 +102,10 @@
                 android:id="@+id/img_rent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_rent" />
+                android:src="@drawable/icon_rent1" />
 
             <TextView
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/img_rent"

@@ -68,7 +68,7 @@ public class Detail_new_product extends AppCompatActivity {
         tv_title.setText(getIntent().getStringExtra("title"));
         name = (TextView)findViewById(R.id.tv_name);
         name.setText(getIntent().getStringExtra("name"));
-        price = (TextView)findViewById(R.id.tv_price);
+        price = (TextView)findViewById(R.id.tv_cost);
         price.setText(Double.toString(getIntent().getDoubleExtra("cost",0)));
         brand = (TextView)findViewById(R.id.tv_year);
         brand.setText(getIntent().getStringExtra("brand"));

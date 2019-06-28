@@ -35,6 +35,7 @@ import com.example.holiday.Buy_sell_rent.Buy.Buy;
 import com.example.holiday.Buy_sell_rent.Rent.Rent;
 import com.example.holiday.Buy_sell_rent.Sell.Sell;
 import com.example.holiday.Class_item.Item_Post;
+import com.example.holiday.Edit_Account.Edit_account;
 import com.example.holiday.New_Activity.Activity_Like;
 import com.example.holiday.New_Activity.Search;
 import com.example.holiday.New_Activity.User_post;
@@ -42,6 +43,7 @@ import com.example.holiday.New_post_product.Adapter.Adapter_list_gird;
 import com.example.holiday.Product_discount.Discount_more_data;
 import com.example.holiday.R;
 import com.example.holiday.Product_discount.Adapter.Adapter_discount;
+import com.example.holiday.Setting.Setting;
 import com.example.holiday.YourPost_Like.List_Post;
 import com.example.holiday.startup.User_Active;
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -136,6 +138,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             aBoolean = false;
         }
         item_discount = new ArrayList<Item_Post>();
+        item_discount.clear();
         Transfer_data transfer_data = new Transfer_data();
         Item_post();
         for (int i=0;i<item_posts.size();i++){
@@ -179,7 +182,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         spinner1.setAdapter(adapter1);
 
         Spinner spinner2 = (Spinner) view.findViewById(R.id.spinner1);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(),R.array.category, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getContext(),R.array.brand, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
 
@@ -310,14 +313,14 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 startActivity(intent);
             }
         });
-//        view.findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getContext(),Search.class);
-//                intent.putExtra("items",item_posts);
-//                startActivity(intent);
-//            }
-//        });
+        view.findViewById(R.id.search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),Search.class);
+                intent.putExtra("items",item_posts);
+                startActivity(intent);
+            }
+        });
         EditText editText = (EditText)view.findViewById(R.id.search);
         editText.clearFocus();
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -346,7 +349,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     public void Item_post(){
         item_posts = new ArrayList<>();
         item_posts.add(new Item_Post(02,R.drawable.home,R.drawable.thean,2007,"Thean","0962363929", "Rent","Post","Home",
-                "New","I hame Rent ","Home","Villa",null,null, null,
+                "New","I have home Rent ","Home","Villa",null,null, null,
                 2400.0,null,null,"Thean168@gmail.com","st 1233","I have home Rent if you want to sell please call me","5","3","south","50"));
         item_posts.add(new Item_Post(02,R.drawable.camera1,R.drawable.thean,2000,"Thean","0962363929", "Buy","Post","Electronic",
                 "New","I want to buy Camera","Camera","Sony","black",null, null,
@@ -367,13 +370,13 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 "Used","samsung new 99%","phone","Samsung","White","null", "null",
                 1000.0,null,"null","Senthou168@gmail.com","st 1233","លក់ phone samsung s10 នៅស្អាត់​ \nម៉ាស៊ីននៅខ្លាំង ធានាគ្រឿងហ្ស៊ីន",null,null,null,null));
         item_posts.add(new Item_Post(03,R.drawable.nokia,R.drawable.samang,2018,"Samsung","086595985", "Sell","Post","Phone",
-                "Used","samsung new 99%","phone","Nokia","White","null", "null",
+                "Used","Nokia new 99%","phone","Nokia","White","null", "null",
                 1000.0,null,null,"Samang168@gmail.com","st 1233","លក់ phone Nokia s10 នៅស្អាត់​ \nម៉ាស៊ីននៅខ្លាំង ធានាគ្រឿងហ្ស៊ីន",null,null,null,null));
         item_posts.add(new Item_Post(03,R.drawable.image_macbook,R.drawable.samang,2018,"Apple","086595985", "Buy","Post","Computer",
                 "Used","samsung new 99%","phone","Nokia","White","null", "null",
                 1000.0,null,"null","Samang168@gmail.com","st 1233","លក់ computer mac pro នៅស្អាត់​ \nម៉ាស៊ីននៅខ្លាំង ធានាគ្រឿងហ្ស៊ីន",null,null,null,null));
         item_posts.add(new Item_Post(03,R.drawable.image_macbook,R.drawable.samang,2018,"Apple","086595985", "Sell","Post","Computer",
-                "Used","samsung new 99%","phone","Nokia","White","null", "null",
+                "Used","Macbook new 99%","phone","Apple","White","null", "null",
                 1000.0,null,"null","Samang168@gmail.com","st 1233","លក់ computer mac pro នៅស្អាត់​ \nម៉ាស៊ីននៅខ្លាំង ធានាគ្រឿងហ្ស៊ីន",null,null,null,null));
         item_posts.add(new Item_Post(03,R.drawable.fan,R.drawable.thean,2008,"Thean","086595985", "Sell","Post","Electronic",
                 "Used","fan new 99%","Electronic","sony","Black",null, null,
@@ -424,7 +427,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         } else if (id == R.id.nav_loan) {
 
-        } else if (id == R.id.nav_sing_out) {
+        } else if (id == R.id.nav_setting) {
+            startActivity(new Intent(getContext(), Setting.class));
 
         }else if (id == R.id.nav_about){
 

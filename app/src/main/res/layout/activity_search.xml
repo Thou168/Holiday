@@ -8,12 +8,16 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        app:title="Search Product"
         app:titleTextColor="#E7E7E7"
         app:navigationIcon="@drawable/icon_back"
-        android:background="@color/colorHome"
+        android:background="@color/colorMessage"
         android:layout_width="match_parent"
         android:layout_height="40dp">
+        <TextView
+            android:layout_gravity="center"
+            android:text="Search All Products"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </android.support.v7.widget.Toolbar>
     <android.support.v7.widget.SearchView
         android:layout_below="@+id/toolbar"

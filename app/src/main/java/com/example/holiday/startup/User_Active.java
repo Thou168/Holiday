@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.holiday.Edit_Account.Edit_account;
 import com.example.holiday.R;
 import com.example.holiday.Setting.Setting;
 import com.example.holiday.fragments.AccountFragment;
@@ -38,7 +39,7 @@ public class User_Active extends AppCompatActivity {
         findViewById(R.id.btn_edit_account).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(),"Hello",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(v.getContext(), Edit_account.class));
             }
         });
         findViewById(R.id.btn_setting).setOnClickListener(new View.OnClickListener() {
