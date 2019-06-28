@@ -7,7 +7,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.holiday.YourPost_Like.List_Post;
+import com.example.holiday.models.BrandViewModel;
 import com.example.holiday.models.CategoryViewModel;
+import com.example.holiday.models.ModelingViewModel;
+import com.example.holiday.models.TypeViewModel;
 import com.example.holiday.models.YearViewModel;
 //import com.google.gson.JsonObject;
 
@@ -74,4 +77,80 @@ public class CommonFunction {
         });
         return categories;
     }
+
+    public static List<TypeViewModel> getTypesList(String username,String password){
+        final List<TypeViewModel> types=new ArrayList<TypeViewModel>();
+        String API_ENDPOINT=String.format("%s%s",ConsumeAPI.BASE_URL,"v1/types/");
+        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, API_ENDPOINT, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try{
+                    JSONArray jsonArray=response.getJSONArray("results");
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject obj=jsonArray.getJSONObject(i);
+                        types.add(new TypeViewModel(obj.getInt("id"),obj.getString("type"),obj.getString("type_kh"),obj.getString("record_status")));
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        return types;
+    }
+
+    public static List<BrandViewModel> getBrandsList(String username,String password){
+        final List<BrandViewModel> brands=new ArrayList<BrandViewModel>();
+        String API_ENDPOINT=String.format("%s%s",ConsumeAPI.BASE_URL,"api/v1/brands/");
+        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, API_ENDPOINT, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try{
+                    JSONArray jsonArray=response.getJSONArray("results");
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject obj=jsonArray.getJSONObject(i);
+                        brands.add(new BrandViewModel(obj.getInt("id"),obj.getInt("category"),obj.getString("brand_name"),obj.getString("brand_name_kh"),obj.getString("description"),obj.getString("brand_image_path")));
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        return brands;
+    }
+
+    public static List<ModelingViewModel> getModelsList(String username,String password){
+        final List<ModelingViewModel> models=new ArrayList<>();
+        String API_ENDPOINT=String.format("%s%s",ConsumeAPI.BASE_URL,"api/v1/models/");
+        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, API_ENDPOINT, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try{
+                    JSONArray jsonArray=response.getJSONArray("results");
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject obj=jsonArray.getJSONObject(i);
+                        models.add(new ModelingViewModel(obj.getInt("id"),obj.getInt("brand"),obj.getString("modeling_name"),obj.getString("modeling_name_kh"),obj.getString("description"),obj.getString("modeling_image_path"),obj.getInt("record_status")));
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        return models;
+    }
+
 }

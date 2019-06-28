@@ -10,6 +10,15 @@ public class BrandViewModel {
     private String brand_image_path;
     private int  record_status;
 
+    public BrandViewModel(int id,int category,String brand_name,String brand_name_kh,String description,String brand_image_path){
+        this.id=id;
+        this.category=category;
+        this.brand_name=brand_name;
+        this.brand_name_kh=brand_name_kh;
+        this.description=description;
+        this.brand_image_path=brand_image_path;
+    }
+
     public int getId() {
         return id;
     }

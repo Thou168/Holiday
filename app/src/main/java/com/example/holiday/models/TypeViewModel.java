@@ -8,6 +8,13 @@ public class TypeViewModel {
     private String created;
     private String modified;
 
+    public TypeViewModel(int id,String type,String type_kh,String record_status){
+        this.id=id;
+        this.type=type;
+        this.type_kh=type_kh;
+        this.record_status=record_status;
+    }
+
     public int getId() {
         return id;
     }
