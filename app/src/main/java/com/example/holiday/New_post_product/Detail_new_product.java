@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.example.holiday.New_Activity.User_post;
 import com.example.holiday.Product_discount.Detail_pro_discount;
 import com.example.holiday.R;
+import com.example.holiday.loan.LoanCreateActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ import ss.com.bannerslider.views.BannerSlider;
 public class Detail_new_product extends AppCompatActivity {
 
     private static final int REQUEST_CALL = 1;
-    Button btn_call,phone1,phone2,cancel,btn_chat;
+    Button btn_call,phone1,phone2,cancel,btn_chat, btn_loan;
     BottomSheetDialog bottomSheetDialog;
     TextView tv_dis,tv_title,name,price,brand,year,color,condition,prices,text,phone,email;
     @Override
@@ -156,6 +157,16 @@ public class Detail_new_product extends AppCompatActivity {
                 });
             }
         });
+
+        btn_loan= (Button) findViewById(R.id.btn_loan);
+        btn_loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Detail_new_product.this,LoanCreateActivity.class);
+                startActivity(intent);
+            }
+        });
+
     } // create
 
     public void bottomsheet(View v){

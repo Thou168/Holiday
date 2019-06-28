@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_gender_male"
+        android:title="Male"/>
+    <item
+        android:id="@+id/menu_gender_female"
+        android:title="Female"/>
+    <item
+        android:id="@+id/menu_gender_other"
+        android:title="Other"/>
+</menu>

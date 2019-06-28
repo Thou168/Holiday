@@ -86,11 +86,6 @@ public class Edit_account extends AppCompatActivity {
         layout_public_user = (LinearLayout)findViewById(R.id.layout_type_public_user);
         layout_121_dealer  = (LinearLayout)findViewById(R.id.layout_type_121_dealer);
 
-
-
-
-
-
         prefer = getSharedPreferences("Register",MODE_PRIVATE);
         if (prefer.contains("token")) {
             pk = prefer.getInt("Pk",0);
@@ -107,12 +102,9 @@ public class Edit_account extends AppCompatActivity {
         pass = prefer.getString("pass","");
         Encode = getEncodedString(name,pass);
 
-
         Field();
         Groups(url,Encode);
         Choose();
-
-
 
         btnsubmit.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -121,15 +113,11 @@ public class Edit_account extends AppCompatActivity {
           }
       });
 
-
     }  // create
 
 
-
     private void PutData(String url,String encode) {
-
         String t = tvType.getText().toString();
-
         username  = etUsername.getText().toString();
         gender    = tvGender.getText().toString().toLowerCase();
         dob       = etDob.getText().toString();
@@ -217,7 +205,7 @@ public class Edit_account extends AppCompatActivity {
     private void Groups(String url,String encode){
         MediaType MEDIA_TYPE     =  MediaType.parse("application/json");
 
-        Log.d(TAG,url);
+        Log.d(TAG,"tt"+url);
 
         OkHttpClient client = new OkHttpClient();
 
@@ -332,7 +320,6 @@ public class Edit_account extends AppCompatActivity {
                 startActivityForResult(intent,MARRIED);
             }
         });
-
 
     }
 

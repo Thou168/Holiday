@@ -34,6 +34,7 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity android:name=".Setting.Change_Password" />
+        <activity android:name=".fragments.Choose_category.Choose_Category"/>
         <activity android:name=".Setting.Setting" />
         <activity android:name=".Login_Register.Register" />
         <activity android:name=".Login_Register.Login" />
@@ -56,12 +57,9 @@
         <activity android:name=".Buy_sell_rent.Buy.Category.Computer_Accessories" />
         <activity android:name=".Buy_sell_rent.Buy.Category.Phone_and_Tablet" />
         <activity android:name=".Buy_sell_rent.Buy.Buy" />
-        <activity android:name=".fragments.Choose_category.Choose_Category"/>
         <activity android:name=".New_Activity.Detail_new_post" />
         <activity android:name=".startup.Login"></activity>
-        <activity android:name=".startup.Login" />
-        <activity android:name=".YourPost_Like.List_Post"/>
-        <activity
+        <activity android:name=".loan.LoanCreateActivity"/>
             android:name=".New_Activity.User_post"
             android:label="@string/title_activity_user_post"
             android:theme="@style/AppTheme.NoActionBar" />

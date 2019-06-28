@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_fill_information"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#0BA0E4">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_fill_information"
+            android:textColor="#ffff"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            />
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/txt_clr_detail"
+                android:paddingLeft="20dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:background="#9CE9E7E7"
+                />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgNameL"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etNameL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_username"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgGenderL"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    />
+
+                <TextView
+                    android:id="@+id/etGenderL"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="-29dp"
+                    android:hint="@string/hit_gender"
+                    android:paddingLeft="5dp"
+                    android:textSize="17dp"
+                    android:paddingTop="7dp"
+                    android:drawableRight="@drawable/arrow_down_black_24dp"
+                    android:paddingRight="15dp"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgAgeL"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etAgeL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_age"
+                    android:inputType="number"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgJobL"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etJobL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_job"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgincomeL"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etIncomeL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_mon_income"
+                    android:inputType="number"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline"
+                >
+                <ImageView
+                    android:id="@+id/imgExpenseL"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etExpenseL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_mon_expense"
+                    android:inputType="number"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgPhoneLW"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etPhoneLW"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_phone"
+                    android:inputType="phone"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="#fff"
+                >
+                <ImageView
+                    android:id="@+id/imgAddressL"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-35dp"/>
+                <EditText
+                    android:id="@+id/etAddressL"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_Address"
+                    android:inputType="textPostalAddress"
+                    android:background="@null"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/txt_clr_information"
+                android:textSize="20dp"
+                android:paddingLeft="20dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:background="#9CE9E7E7"
+                />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgloanAmmount"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etLoanAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_loan_amount"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgLoanDuration"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etLoanDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_loan_duration"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgLoanPurpose"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-45dp"/>
+                <EditText
+                    android:id="@+id/etLoanPurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_purpos"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="#fff"
+                >
+                <ImageView
+                    android:id="@+id/imgloanstatus"
+                    android:layout_width="20dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_null"
+                    android:layout_marginTop="-35dp"/>
+                <EditText
+                    android:id="@+id/etStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_status"
+                    android:inputType="textPostalAddress"
+                    android:background="@null"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="#9CE9E7E7"
+                android:paddingLeft="20dp"
+                android:text="@string/txt_clr_supporting"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgstateid"
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_null"
+                    />
+                <TextView
+                    android:id="@+id/etStateID"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_state_id"
+                    android:textSize="17dp"
+                    android:layout_marginTop="-30dp"
+                    android:drawableRight="@drawable/arrow_down_black_24dp"
+                    android:paddingRight="15dp"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgfamily"
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_null"
+                    />
+                <TextView
+                    android:id="@+id/etfamily"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_family_book"
+                    android:textSize="17dp"
+                    android:layout_marginTop="-30dp"
+                    android:drawableRight="@drawable/arrow_down_black_24dp"
+                    android:paddingRight="15dp"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/underline">
+                <ImageView
+                    android:id="@+id/imgstaff"
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_null"
+                    />
+                <TextView
+                    android:id="@+id/etstaff"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_staffid"
+                    android:textSize="17dp"
+                    android:layout_marginTop="-30dp"
+                    android:drawableRight="@drawable/arrow_down_black_24dp"
+                    android:paddingRight="15dp"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffff">
+                <ImageView
+                    android:id="@+id/imgHours"
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_null"
+                    />
+                <TextView
+                    android:id="@+id/etHours"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:hint="@string/hit_hourse"
+                    android:textSize="17dp"
+                    android:layout_marginTop="-30dp"
+                    android:drawableRight="@drawable/arrow_down_black_24dp"
+                    android:paddingRight="15dp"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:text="@string/loan_calculation"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:background="#9CE9E7E7"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/loan_calculation_title"
+                android:paddingLeft="20dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/title_loan_price"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ed_loan_price"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/title_loan_interest_rate"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ed_loan_interest_rate"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/title_loan_deposit"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ed_loan_deposit"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/title_loan_term"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ed_loan_term"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border_edittext"
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/btnsubmit"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shap_ratangle"
+                android:text="@string/hit_btnsubmit"
+                android:textSize="14dp"
+                android:textAllCaps="false"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
