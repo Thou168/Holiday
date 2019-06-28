@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -30,6 +31,7 @@ import com.example.holiday.api.ConsumeAPI;
 import com.example.holiday.fragments.Choose_category.Choose_Category;
 import com.example.holiday.startup.MainActivity;
 import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -55,6 +57,13 @@ public class CameraFragment extends Fragment {
     private ImageView icPostType,icCategory,icType_elec,icBrand,icModel,icYears,icCondition,icColor,icRent,icDiscount_type,
                         icTitile,icVincode,icMachineconde,icDescription,icPrice,icDiscount_amount,icName,icEmail,icPhone1,icPhone2,icPhone3;
     private Button  submit_post;
+    private ImageView imageView1,imageView2,imageView3,imageView4,imageView5;
+    Uri ImageUri;
+    private static final int IMAGE1=11;
+    private static final int IMAGE2=12;
+    private static final int IMAGE3=13;
+    private static final int IMAGE4=14;
+    private static final int IMAGE5=15;
     private static final int POST_TYPLE = 0;
     private static final int CATEGORY =1;
     private static final int TYPE_ELEC =2;
@@ -126,6 +135,12 @@ public class CameraFragment extends Fragment {
         icDiscount_amount = (ImageView)view.findViewById(R.id. imgDisAmount);
         icDiscount_type   = (ImageView)view.findViewById(R.id.imgDisType );
 
+        imageView1=(ImageView)view.findViewById(R.id.Picture1);
+        imageView2=(ImageView)view.findViewById(R.id.Picture2);
+        imageView3=(ImageView)view.findViewById(R.id.Picture3);
+        imageView4=(ImageView)view.findViewById(R.id.Picture4);
+        imageView5=(ImageView)view.findViewById(R.id.Picture5);
+
 // get data from sharepreference
         prefer = this.getActivity().getSharedPreferences("Register",MODE_PRIVATE);
         if (prefer.contains("token")) {
@@ -147,7 +162,7 @@ public class CameraFragment extends Fragment {
                 PostData(Encode);
             }
         });
-
+        Image();
         Choose();
         return view;
     }// createview
@@ -408,6 +423,54 @@ public class CameraFragment extends Fragment {
         });
     } //choose
 
+    private void Image(){
+
+        imageView1.setImageResource(R.drawable.add_box_black_24dp);
+        imageView2.setImageResource(R.drawable.add_box_black_24dp);
+        imageView3.setImageResource(R.drawable.add_box_black_24dp);
+        imageView4.setImageResource(R.drawable.add_box_black_24dp);
+        imageView5.setImageResource(R.drawable.add_box_black_24dp);
+
+        imageView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i,IMAGE1);
+
+            }
+        });
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i,IMAGE2);
+            }
+        });
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i,IMAGE3);
+            }
+        });
+        imageView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i,IMAGE4);
+            }
+        });
+        imageView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i,IMAGE5);
+            }
+        });
+    }
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == POST_TYPLE && data!=null){
@@ -455,6 +518,25 @@ public class CameraFragment extends Fragment {
             String st = data.getStringExtra("field");
 
             tvDiscount_type.setText(st);
+        }
+
+
+        if( requestCode==IMAGE1 && resultCode== RESULT_OK && null != data){
+            ImageUri= data.getData();
+
+            Picasso.with(getActivity()).load(ImageUri).into(imageView1);
+        }else  if(resultCode==RESULT_OK && requestCode==IMAGE2 && null != data) {
+            ImageUri = data.getData();
+            Picasso.with(getActivity()).load(ImageUri).into(imageView2);
+        }else  if(resultCode==RESULT_OK && requestCode==IMAGE3 && null != data) {
+            ImageUri = data.getData();
+            Picasso.with(getActivity()).load(ImageUri).into(imageView3);
+        }else  if(resultCode==RESULT_OK && requestCode==IMAGE4 && null != data) {
+            ImageUri = data.getData();
+            Picasso.with(getActivity()).load(ImageUri).into(imageView4);
+        }else  if(resultCode==RESULT_OK && requestCode==IMAGE5 && null != data) {
+            ImageUri = data.getData();
+            Picasso.with(getActivity()).load(ImageUri).into(imageView5);
         }
 
     }
