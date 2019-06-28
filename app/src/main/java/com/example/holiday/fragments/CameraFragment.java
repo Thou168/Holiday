@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.example.holiday.R;
 import com.example.holiday.api.ConsumeAPI;
 import com.example.holiday.fragments.Choose_category.Choose_Category;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -75,9 +76,7 @@ public class CameraFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.post_ad,container,false);
-
-
-//textview ///////
+        //textview ///////
         tvPostType = (TextView)view.findViewById(R.id.tvPostType);
         tvCategory = (TextView)view.findViewById(R.id.tvCategory);
         tvType_elec= (TextView)view.findViewById(R.id.tvType_elec);
@@ -88,7 +87,7 @@ public class CameraFragment extends Fragment {
         tvColor    = (TextView)view.findViewById(R.id.tvColor);
         tvRent     = (TextView)view.findViewById(R.id.tvRent);
         tvDiscount_type = (TextView)view.findViewById(R.id.tvDisType);
- // edit text ////
+        // edit text ////
         etTitle           = (EditText)view.findViewById(R.id.etTitle );
         etVinCode         = (EditText)view.findViewById(R.id.etVinCode );
         etMachineCode     = (EditText)view.findViewById(R.id.etMachineCode );
@@ -100,7 +99,7 @@ public class CameraFragment extends Fragment {
         etPhone2          = (EditText)view.findViewById(R.id.etphone2 );
         etPhone3          = (EditText)view.findViewById(R.id.etphone3 );
         etEmail           = (EditText)view.findViewById(R.id.etEmail );
-//// icon  ////////
+        //// icon  ////////
         icPostType   = (ImageView)view.findViewById(R.id.imgPostType);
         icCategory   = (ImageView)view.findViewById(R.id. imgCategory);
         icType_elec  = (ImageView)view.findViewById(R.id.imgType_elec );
@@ -123,7 +122,7 @@ public class CameraFragment extends Fragment {
         icDiscount_amount = (ImageView)view.findViewById(R.id. imgDisAmount);
         icDiscount_type   = (ImageView)view.findViewById(R.id.imgDisType );
 
-// get data from sharepreference
+        // get data from sharepreference
         prefer = this.getActivity().getSharedPreferences("Register",MODE_PRIVATE);
         if (prefer.contains("token")) {
             pk = prefer.getInt("Pk",0);
@@ -156,9 +155,7 @@ public class CameraFragment extends Fragment {
     }
     private void PostData(String encode) {
         MediaType MEDIA_TYPE = MediaType.parse("application/json");
-
-        String url =String.format("%s%s", ConsumeAPI.BASE_URL,"postsale/");
-
+        String url="";
         OkHttpClient client = new OkHttpClient();
         JSONObject post = new JSONObject();
         JSONObject sale = new JSONObject();
@@ -175,78 +172,132 @@ public class CameraFragment extends Fragment {
 //            post.put("contact_phone","012345620");
 //            post.put("cost",0);
 
-                    post.put("title",etTitle.getText().toString().toLowerCase() );
-                    post.put("category", tvCategory.getText().toString().toLowerCase());
-                    post.put("status", "");
-                    post.put("condition",tvCondition.getText().toString().toLowerCase() );
-                    post.put("discount_type", tvDiscount_type.getText().toString().toLowerCase() );
-                    post.put("discount", etDiscount_amount.getText().toString());
-                    post.put("user",null );
-                    post.put("front_image_path", null);
-                    post.put("right_image_path", null);
-                    post.put("left_image_path", null);
-                    post.put("back_image_path", null);
-                    post.put("created", "");
-                    post.put("created_by", user_id);
-                    post.put("modified", null);
-                    post.put("modified_by", null);
-                    post.put("approved_date", null);
-                    post.put("approved_by", null);
-                    post.put("rejected_date", null);
-                    post.put("rejected_by",null);
-                    post.put("rejected_comments", "");
-                    post.put("year", tvYear.getText().toString().toLowerCase());
-                    post.put("modeling", tvModel.getText().toString().toLowerCase());
-                    post.put("description", etDescription.getText().toString().toLowerCase());
-                    post.put("cost", etPrice.getText().toString().toLowerCase());
-                    post.put("post_type",tvPostType.getText().toString().toLowerCase() );
-                    post.put("vin_code", etVinCode.getText().toString().toLowerCase());
-                    post.put("machine_code", etMachineCode.getText().toString().toLowerCase());
-                    post.put("type", tvType_elec.getText().toString().toLowerCase());
-                    post.put("contact_phone", etPhone1.getText().toString().toLowerCase());
-                    post.put("contact_email", etEmail.getText().toString().toLowerCase() );
-                    post.put("contact_address", "");
-                    post.put("color", tvColor.getText().toString().toLowerCase());
 
+            String postType=tvPostType.getText().toString().toLowerCase();
 
+            post.put("title",etTitle.getText().toString().toLowerCase() );
+            post.put("category", tvCategory.getText().toString().toLowerCase());
+            post.put("status", "");
+            post.put("condition",tvCondition.getText().toString().toLowerCase() );
+            post.put("discount_type", tvDiscount_type.getText().toString().toLowerCase() );
+            post.put("discount", etDiscount_amount.getText().toString());
+            post.put("user",null );
+            post.put("front_image_path", null);
+            post.put("right_image_path", null);
+            post.put("left_image_path", null);
+            post.put("back_image_path", null);
+            post.put("created", "");
+            post.put("created_by", user_id);
+            post.put("modified", null);
+            post.put("modified_by", null);
+            post.put("approved_date", null);
+            post.put("approved_by", null);
+            post.put("rejected_date", null);
+            post.put("rejected_by",null);
+            post.put("rejected_comments", "");
+            post.put("year", tvYear.getText().toString().toLowerCase());
+            post.put("modeling", tvModel.getText().toString().toLowerCase());
+            post.put("description", etDescription.getText().toString().toLowerCase());
+            post.put("cost", etPrice.getText().toString().toLowerCase());
+            post.put("post_type",tvPostType.getText().toString().toLowerCase() );
+            post.put("vin_code", etVinCode.getText().toString().toLowerCase());
+            post.put("machine_code", etMachineCode.getText().toString().toLowerCase());
+            post.put("type", tvType_elec.getText().toString().toLowerCase());
+            post.put("contact_phone", etPhone1.getText().toString().toLowerCase());
+            post.put("contact_email", etEmail.getText().toString().toLowerCase() );
+            post.put("contact_address", "");
+            post.put("color", tvColor.getText().toString().toLowerCase());
+
+            switch (postType){
+                case "sell":
+                    url=ConsumeAPI.BASE_URL+"postsale/";
+                    Log.d("URL","URL"+url);
                     sale.put("sale_status", 2);
                     sale.put("record_status",2);
                     sale.put("sold_date", null);
                     sale.put("price", etPrice.getText().toString().toLowerCase());
                     sale.put("total_price", etPrice.getText().toString().toLowerCase());
-
                     post.put("sale_post",new JSONArray("["+sale+"]"));
+                    break;
+                case "rent":
+                    url = String.format("%s%s", ConsumeAPI.BASE_URL, "postrent/");
+                    JSONObject rent=new JSONObject();
+                    rent.put("rent_status",1);
+                    rent.put("record_status",1);
+                    rent.put("rent_type",tvRent.getText().toString().toLowerCase());
+                    rent.put("price",etPrice.getText().toString().toLowerCase());
+                    rent.put("total_price",etPrice.getText().toString().toLowerCase());
+                    rent.put("rent_date",null);
+                    rent.put("return_date",null);
+                    rent.put("rent_count_number",0);
+                    post.put("rent_post",new JSONArray("["+rent+"]"));
+                    break;
+                case "buy":
+                    url = String.format("%s%s", ConsumeAPI.BASE_URL, "api/v1/postbuys/");
+                    JSONObject buy=new JSONObject();
+                    buy.put("buy_status",1);
+                    buy.put("record_status",1);
+                    post.put("buy_post",new JSONArray("["+buy+"]"));
+                    break;
+            }
+/*
+            if(postType == "sell") {
+                //url = String.format("%s%s", ConsumeAPI.BASE_URL, "");
+                url=ConsumeAPI.BASE_URL+"postsale/";
+                Log.d("URL","URL"+url);
+                sale.put("sale_status", 2);
+                sale.put("record_status",2);
+                sale.put("sold_date", null);
+                sale.put("price", etPrice.getText().toString().toLowerCase());
+                sale.put("total_price", etPrice.getText().toString().toLowerCase());
+                post.put("sale_post",new JSONArray("["+sale+"]"));
+            }
+            else if(postType=="rent") {
+                url = String.format("%s%s", ConsumeAPI.BASE_URL, "postrent/");
+                JSONObject rent=new JSONObject();
+                rent.put("rent_status",1);
+                rent.put("record_status",1);
+                rent.put("rent_type",tvRent.getText().toString().toLowerCase());
+                rent.put("price",etPrice.getText().toString().toLowerCase());
+                rent.put("total_price",etPrice.getText().toString().toLowerCase());
+                rent.put("rent_date",null);
+                rent.put("return_date",null);
+                rent.put("rent_count_number",0);
+                post.put("rent_post",new JSONArray("["+rent+"]"));
+            }
+            else if(postType=="buy") {
+                url = String.format("%s%s", ConsumeAPI.BASE_URL, "api/v1/postbuys/");
 
+            }
+*/
+            RequestBody body = RequestBody.create(MEDIA_TYPE, post.toString());
+            String auth = "Basic " + encode;
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .header("Authorization",auth)
+                    .build();
+
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    String mMessage = e.getMessage().toString();
+                    Log.d("Failure:",mMessage );
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String message = response.body().string();
+                    Log.d("Response",message);
+                }
+            });
          //   Log.d("Response",post.toString());
         }catch (Exception e){
             e.printStackTrace();
         }
-
-        RequestBody body = RequestBody.create(MEDIA_TYPE, post.toString());
-        String auth = "Basic " + encode;
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .header("Accept", "application/json")
-                .header("Content-Type", "application/json")
-                .header("Authorization",auth)
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                String mMessage = e.getMessage().toString();
-                Log.d("Failure:",mMessage );
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String message = response.body().string();
-                Log.d("Response",message);
-            }
-        });
-
     } //postdata
 
 
@@ -295,8 +346,6 @@ public class CameraFragment extends Fragment {
                     intent.putExtra("type_elec",st);
                     startActivityForResult(intent,BRAND);
                 }
-
-
             }
         });
 
